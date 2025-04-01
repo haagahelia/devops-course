@@ -41,7 +41,65 @@ Developers should be familiar with Continuous Integration and Continuous Deliver
 
 Developers are expected to be familiar with development automatization, such as writing scripts for build, test, and deployment processes. Developers should design applications with monitoring in mind. This includes adding logging, metrics, and tracing to help identify and resolve issues in production.
 
-Developers should know security practices of the development process (DevSecOps). They should write secure code and use tools to identify vulnerabilities early. DevOps is an continuous evolving field. Developers must stay updated with the latest tools, practices, and technologies.
+Developers should know security practices of sthe development process (DevSecOps). They should write secure code and use tools to identify vulnerabilities early. DevOps is an continuous evolving field. Developers must stay updated with the latest tools, practices, and technologies.
 
-- Stages of a modern CI/CD pipeline
-- Tools used in each stage
+### CALMS framework
+
+CALMS is a framework that can be used to assess company's ability to adopt DevOps processes. You can read more about CALMS in https://www.atlassian.com/devops/frameworks/calms-framework.
+
+### Tools used in each DEVOPS stage
+Here are some commonly used tools in each stage of the DevOps lifecycle:
+
+**Plan:**
+  - GitHub Projects
+  - Jira
+  - Trello
+  - Azure Boards
+ 
+**Build:**
+  - Maven
+  - Gradle
+  - npm
+  - Docker
+
+**Test:**
+  - Selenium
+  - JUnit
+  - JEST
+  - Playwright
+
+**Deploy:**
+  - GitHub Actions
+  - Jenkins
+  - CircleCI
+  - Kubernetes
+
+**Operate:**
+  - Ansible
+  - Chef
+  - Puppet
+  - Terraform
+
+**Observe (Monitor):**
+  - Prometheus
+  - Grafana
+  - Splunk
+  - New Relic
+
+**Continuous Feedback (Learn):**
+  - Datadog
+  - PagerDuty
+  - Sumo Logic
+
+In this course, we are mostly using tools from Github and Docker for containerization.
+
+:::info
+There are a lot of new terms, tools and technologies to learn but according to Atlassian 2020 DevOps Trends Survey (https://www.atlassian.com/whitepapers/devops-survey-2020):
+
+***People and culture are the top factors of a successful DevOps implementation.***
+:::
+
+---
+### Further Reading
+- https://www.atlassian.com/devops
+- https://github.com/resources/articles/devops/what-is-devops
