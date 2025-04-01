@@ -4,6 +4,15 @@ sidebar_position: 1
 
 # Course Intro
 
+## Prerequisites
+- Basic understanding of Git version control system.
+- Basics understanding of Github.
+- Familiarity with command-line tools and basic shell commands.
+- Knowledge of programming fundamentals (e.g., writing and understanding scripts).
+- Knowledge of software development lifecycle concepts.
+
+Lisää tähän myös linkkejä materiaaleihin mitä voi käydä läpi jos opiskelija tuntee tarvetta.
+
 ## TOC
 
 Mitä pitäisi olla heti alussa. Tarvitaanko komentorivi käytön perusteita kuten teillä on ollut siellä teknologia kurssilla? Tämä on hankalaa koska meillä ei ole mitään selkeää peruskurssia näille asioille.
