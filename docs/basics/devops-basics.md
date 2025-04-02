@@ -88,16 +88,12 @@ Here are some commonly used tools in each stage of the DevOps lifecycle:
   - Puppet
   - Terraform
 
-**Observe (Monitor):**
+**Observe (Monitor):** / **Continuous Feedback (Learn):**
   - Prometheus
   - Grafana
-  - Splunk
   - New Relic
-
-**Continuous Feedback (Learn):**
   - Datadog
-  - PagerDuty
-  - Sumo Logic
+  - BetterStack
 
 In this course, we are mostly using tools from Github and Docker for containerization.
 
