@@ -1,13 +1,12 @@
 ---
 sidebar_position: 1
-title: What is DevOps?
+title: 'What is DevOps?'
 ---
-
 **DevOps** is a set of practices, tools, and a cultural philosophy that automates and integrates the processes between software development and IT operations teams. It emphasizes collaboration and communication to deliver software faster and more reliably.
 
 Traditionally, development and operations teams worked in silos. Developers focused on writing code and releasing new features, while operations teams were responsible for maintaining the stability and availability of the systems. This often led to conflicts and delays.
 
-DevOps aims to break down these silos by introducing a culture of shared responsibility. It promotes **automation***, **continuous integration**, and **continuous delivery** (CI/CD) to streamline the software development lifecycle. By using DevOps practices, organizations can achieve faster time to market, improved software quality, and increased customer satisfaction.
+DevOps aims to break down these silos by introducing a culture of shared responsibility. It promotes **automation**, **continuous integration**, and **continuous delivery** (CI/CD) to streamline the software development lifecycle. By using DevOps practices, organizations can achieve faster time to market, improved software quality, and increased customer satisfaction.
 
 The following image describes the DevOps loop:
 
@@ -34,6 +33,12 @@ DevOps offer advantages for organizations by breaking down silos and promoting a
 *   **Greater Efficiency:** Automation and streamlined processes can help organizations reduce costs and improve efficiency.
 *   **Better Reliability:** DevOps practices such as continuous monitoring and automated recovery can help ensure that systems are reliable and available.
 
+#### CI
+CI (Continuous Integration) is a practice where developers frequently integrate their code changes into a shared repository. Each integration is automatically verified by running a build and tests. This helps detect and fix issues early, improving code quality and reducing the risk of bugs in production.
+
+#### CD
+CD (Continuous Delivery) is a practice where code changes are automatically prepared for release to production. It builds on Continuous Integration by ensuring that code is always in a deployable state. With CD, every change that passes automated tests is automatically deployed to a staging environment or optionally to production. This reduces manual work and ensures that deployments are consistent and reliable.
+
 ### What Does DevOps Require from a Software Developer?
 DevOps requires software developers to adopt a mindset and skill set that goes beyond traditional development roles. 
 
@@ -42,6 +47,9 @@ Developers should be familiar with Continuous Integration and Continuous Deliver
 Developers are expected to be familiar with development automatization, such as writing scripts for build, test, and deployment processes. Developers should design applications with monitoring in mind. This includes adding logging, metrics, and tracing to help identify and resolve issues in production.
 
 Developers should know security practices of sthe development process (DevSecOps). They should write secure code and use tools to identify vulnerabilities early. DevOps is an continuous evolving field. Developers must stay updated with the latest tools, practices, and technologies.
+
+> *People and culture are the top factors of a successful DevOps implementation.*
+> Atlassian 2020 DevOps Trends Survey (https://www.atlassian.com/whitepapers/devops-survey-2020)
 
 ### CALMS framework
 
@@ -92,12 +100,6 @@ Here are some commonly used tools in each stage of the DevOps lifecycle:
   - Sumo Logic
 
 In this course, we are mostly using tools from Github and Docker for containerization.
-
-:::info
-There are a lot of new terms, tools and technologies to learn but according to Atlassian 2020 DevOps Trends Survey (https://www.atlassian.com/whitepapers/devops-survey-2020):
-
-***People and culture are the top factors of a successful DevOps implementation.***
-:::
 
 ---
 ### Further Reading
