@@ -9,7 +9,7 @@ title: Collaborating with Github
 - Code reviews and best practices
 - Managing repository permissions
 
-materiaaleja:
+materiaaleja tähän osioon:
 - https://www.youtube.com/watch?v=yFQ-p6wMS_Y / Github projects
 - https://www.youtube.com/watch?v=D80u__nYYWw / Project roadmaps
 - https://docs.github.com/en/pull-requests/collaborating-with-pull-requests
