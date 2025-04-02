@@ -4,14 +4,29 @@ sidebar_position: 1
 
 # Course Intro
 
-## Prerequisites
-- Basic understanding of Git version control system.
-- Basics understanding of Github.
-- Familiarity with command-line tools and basic shell commands.
-- Knowledge of programming fundamentals (e.g., writing and understanding scripts).
-- Knowledge of software development lifecycle concepts.
+Welcome to the DevOps course!  
 
-Lisää tähän myös linkkejä materiaaleihin mitä voi käydä läpi jos opiskelija tuntee tarvetta.
+In this course, you will get a basic understanding of DevOps principles, tools, and practices. We will explore how to streamline software development and delivery processes, enabling faster and more reliable deployments.  
+
+## Prerequisites
+
+Before starting this course, it is recommended that you have the following knowledge:
+
+- **Basic understanding of Git version control system.**  
+  If you are new to Git, check out [Git Basics](https://git-scm.com/doc) or [GitHub's Git Handbook](https://guides.github.com/introduction/git-handbook/).
+
+- **Basic understanding of GitHub.**  
+  Learn the basics of GitHub with [GitHub Docs](https://docs.github.com/en/get-started).
+
+- **Familiarity with command-line tools and basic shell commands.**  
+  If you are unfamiliar with the command line, you can start with [Command line crash course](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line).
+
+- **Knowledge of programming fundamentals (e.g., writing and understanding scripts).**  
+
+- **Knowledge of software development lifecycle concepts.**  
+  If this is new to you, consider reading [SDLC Overview](https://www.geeksforgeeks.org/software-development-life-cycle-sdlc/).
+
+These resources can help you if you are unfamiliar with any of the topics.
 
 ## TOC
 
