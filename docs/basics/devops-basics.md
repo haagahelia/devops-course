@@ -39,6 +39,8 @@ CI (Continuous Integration) is a practice where developers frequently integrate 
 #### CD
 CD (Continuous Delivery) is a practice where code changes are automatically prepared for release to production. It builds on Continuous Integration by ensuring that code is always in a deployable state. With CD, every change that passes automated tests is automatically deployed to a staging environment or optionally to production. This reduces manual work and ensures that deployments are consistent and reliable.
 
+You can read more about CI/CD in https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment.
+
 ### What Does DevOps Require from a Software Developer?
 DevOps requires software developers to adopt a mindset and skill set that goes beyond traditional development roles. 
 
