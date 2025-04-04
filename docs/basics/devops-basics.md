@@ -12,11 +12,12 @@ The following image describes the DevOps loop:
 
 ![DevOps loop](./img/devops_loop.png)
 
-Image source: https://www.atlassian.com/devops
+DevOps loop from  https://www.atlassian.com/devops
 
 The DevOps loop illustrates the iterative nature of DevOps practices. It consists of the following stages:
 
-*   **Plan:** Define and prioritize features and requirements.
+*   **Plan:** Development team Define and prioritize features and requirements.
+*   **Code:** Develop planned features using the same codebase.
 *   **Build:** Integrate code changes and create software builds.
 *   **Test:** Perform automated and manual testing to ensure quality.
 *   **Deploy:** Deploy the software to the target environment.
@@ -60,11 +61,12 @@ CALMS is a framework that can be used to assess company's ability to adopt DevOp
 ### Tools used in each DEVOPS stage
 Here are some commonly used tools in each stage of the DevOps lifecycle:
 
-**Plan:**
-  - GitHub Projects
+**Plan & Code:**
+  - GitHub
   - Jira
   - Trello
   - Azure Boards
+  - Git
  
 **Build:**
   - Maven
