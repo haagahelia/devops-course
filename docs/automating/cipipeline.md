@@ -3,6 +3,8 @@ sidebar_position: 3
 title: CI Pipelines
 ---
 
+Use Node.js app from https://github.com/juhahinkula/ci-training.git
+
 - Building CI Pipelines
 - Running automated linting & tests (Full stack kurssin tehtävä)
 - Debugging failed workflows

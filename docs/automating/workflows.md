@@ -13,7 +13,7 @@ Workflows are defined using YAML syntax (https://yaml.org/). Workflow files must
 Create a new repository to Github and enable *"Add a README file"* to create `README.md` file to your repository Then, follow the instructions in https://docs.github.com/en/actions/writing-workflows/quickstart#creating-your-first-workflow to create and run your first Github actions workflow.
 :::
 
-Here's an example of a workflow file similar to the one you created. Let's break down its structure to understand how it works:
+Here's an example of a workflow file similar to the one you have created in the task. Let's break down its structure to understand how it works:
 
 ```yaml
 name: GitHub Actions Demo
