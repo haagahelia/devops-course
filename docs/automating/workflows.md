@@ -49,7 +49,9 @@ on:
 ```
 In this example, the workflow is configured to trigger whenever a push is made to the `main` branch of the repository.
 
-The `jobs` section specifies a set of tasks that the workflow will execute. In this example there is one job that is named `Explore-GitHub-Actions`. The `runs-on` defines that job runs on an `ubuntu-latest` virtual machine. You can also specify the ubuntu version for example, `runs-on: ubuntu-22.04`. Read more about choosing the runner for a job in [Github docs](https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job).
+The `jobs` section specifies a set of tasks that the workflow will execute. In this example there is one job that is named `Explore-GitHub-Actions`. 
+
+The `runs-on` defines that job runs on an `ubuntu-latest` virtual machine. You can also specify the ubuntu version for example, `runs-on: ubuntu-22.04`. Read more about choosing the runner for a job in [Github docs](https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job).
 
 The `steps` defines the individual tasks within a job. The `run` keyword is used to define a shell command or script that will be executed in a workflow step. Each `run` step executes a command directly on the runner (the virtual machine or container where the job is running).
 
