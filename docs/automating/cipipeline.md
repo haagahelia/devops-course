@@ -3,6 +3,8 @@ sidebar_position: 3
 title: CI Pipelines
 ---
 
+### CI workflow
+
 In this section, we will implement simple CI workflow to lint, build and test the Node.js app. 
 
 1. Fork the app from this [repository](https://github.com/juhahinkula/ci-training.git).
@@ -96,7 +98,7 @@ jobs:
 
 Commit changes to your local repository and push changes to Github repository. If you open the **Actions** tab of your repository, you should see the workflow running.
 
-:::info[Task]
+:::info[Task: Fix errors]
 The workflow may initially fail due to issues in linting or testing. 
 
 ![Linting errors](./img/linter_errors.png)
@@ -104,8 +106,18 @@ The workflow may initially fail due to issues in linting or testing.
 Identify and resolve these errors to ensure the workflow completes successfully with a green status.
 :::
 
+### Matrices
 
-Materiaaleja tähän osioon:
+In GitHub Actions, **matrices** are a feature that allows you to run multiple variations of a job in parallel. This is particularly useful for testing your code across different environments, such as multiple versions of a programming language, operating systems, or configurations.
+
+:::info[TASK: Define matrix]
+Read the [matrix documentation](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow) and modify the CI workflow that we have made. The workflow should run using both the Node versions 20 and 22 and the latest ubuntu and windows versions.
+:::
+
+---
+### Further reading
 - https://github.com/features/actions
-- https://www.youtube.com/watch?v=vMhDkt5JNN0 / Secrets
 - https://fullstackopen.com/en/part11/getting_started_with_git_hub_actions
+
+
+MISSÄ TÄMÄ KÄSITELLÄÄN: - https://www.youtube.com/watch?v=vMhDkt5JNN0 / Secrets
