@@ -111,7 +111,10 @@ Identify and resolve these errors to ensure the workflow completes successfully 
 In GitHub Actions, **matrices** are a feature that allows you to run multiple variations of a job in parallel. This is particularly useful for testing your code across different environments, such as multiple versions of a programming language, operating systems, or configurations.
 
 :::info[TASK: Define matrix]
-Read the [matrix documentation](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow) and modify the CI workflow that we have made. The workflow should run using both the Node versions 20 and 22 and the latest ubuntu and windows versions.
+Read the [matrix documentation](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow) and modify the CI workflow that we have made. The workflow should run using both the Node versions 20 and 22 and the latest ubuntu and windows versions. You should see 4 jobs executed in the workflow:
+
+![Worflow matrix](./img//matrix.png)
+
 :::
 
 ---
