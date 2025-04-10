@@ -7,6 +7,9 @@ title: CD pipeline
 - Building CI/CD pipelines
 - Deploying to cloud providers (Rahti ?)
 - Kubernetes??
+- Versions (should it be in CI?) 
+
+Render: https://render.com/docs/web-services
 
 
 Github pages:
