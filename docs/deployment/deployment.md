@@ -11,12 +11,14 @@ First, you have to create an account to Render.com in https://dashboard.render.c
 
 Next, you can select public GitHub repository where your project is hosted and press the **Connect** button.
 
-In the web service form select the following:
+In the web service form, fill in the following details:
 
-| Language | Node |
-| Branch | main |
-| Build command | npm install |
-| Start command | npm start |
+| Field           | Value        |
+|------------------|--------------|
+| Language         | Node         |
+| Branch           | main         |
+| Build command    | npm install  |
+| Start command    | npm start    |
 
 In the Instance Type select **Free** option
 
@@ -39,31 +41,69 @@ Push your changes to the repository and see that the GitHub actions workflow fai
 
 One of the tests does not pass, yet the application is still automatically deployed to Render.com. **Deployments should only occur after all linting and tests have successfully passed.**.
 
-
 ### CI/CD Pipeline
 
-In this phase we will modify our GitHub actions workflow so that deployment is done only after linting and tests are passed.
+In this phase we will modify our GitHub actions workflow so that deployment is done only after linting and tests are passed. We will use web hooks to trigger deployment after linting and tests are passed. If you are not familiar with web hooks you can read more [here](https://www.redhat.com/en/topics/automation/what-is-a-webhook). The instructions to use web hooks for the deployment in Render.com can be found [here](https://render.com/docs/deploy-hooks). 
 
 First, we will disable automatic deployment from the Render.com web service. Navigate to the settings page of your web service and select **No** from the **Auto-Deploy**.
 
 ![Auto deployment](./img/auto_deploy.png)
 
-Next, we will modify our Github actions workflow.
+Next, we have to get hook url. Navigate to your Render.com web service's settings and scroll down to **Deploy Hook**. Copy your private hook url and remember to keep that secret.
+
+![Deploy hook](./img/deploy_hook.png)
+
+To securely use the deployment hook URL in your GitHub Actions workflow, you should store it as a secret. Navigate to your repository's settings, and from the left-side menu, select **Secrets and variables**. Create a new **Repository secret**, name it `RENDER_DEPLOY_HOOK_URL`, and paste the deployment hook URL you copied from Render.com into the secret value field. Finally, click the **Add Secret** button to save it.
+
+![Github secrets](./img/github_secret.png)
+
+You can read more about secrets [here](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions).
+
+Now, we can  modify our Github actions workflow. Add the following Deploy step in your GitHub Actions workflow. It is responsible for triggering a deployment to the Render.com using a deployment hook URL.
+
+```yaml
+# Node.js CI/CD pipeline
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Node-ci-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: 
+          node-version: '20'
+      - name: Install dependencies
+        run: npm ci
+      - name: Linting
+        run: npm run lint
+      - name: Build
+        run: npm run build
+      - name: Run tests
+        run: npm run test
+      //highlight-start
+      # Deployment to Render.com
+      - name: Deploy
+        env:
+          deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          curl "$deploy_url"   
+     //highlight-end
+```
+- The `deploy_url` is set using a secret stored in your GitHub repository (`RENDER_DEPLOY_HOOK_URL`).
+Secrets are securely stored and not exposed in logs, ensuring sensitive information like deployment URLs or API keys remains protected.
+- The `curl` command is used to make an HTTP request to the deployment hook URL (`$deploy_url`).
+This triggers a deployment process on a Render, which listens for such hooks to start deploying the latest version of your application.
+
+Once the deployment is triggered, navigate to the **Events** section in your Render.com web service dashboard. Here, you should see a new deployment event. After the deployment completes, the latest version of your application will be live.
 
 
-- Deployment & Delivery (CD)
-- Automated Deployments with GitHub Actions
-- Building CI/CD pipelines
-- Deploying to cloud providers (Rahti ?)
-- Kubernetes??
+
+- Deployment using containers
 - Versions (should it be in CI?) 
 
-
-Render: https://render.com/docs/web-services
-https://render.com/docs/deploy-node-express-app
-
-Github pages:
-- https://docs.github.com/en/actions/security-for-github-actions/security-guides/automatic-token-authentication
-- https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/controlling-permissions-for-github_token#:%7E:text=pages%3A%20write%20permits%20an%20action%20to%20request%20a%20GitHub%20Pages%20build
-
-Rahti:
