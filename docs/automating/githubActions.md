@@ -9,6 +9,8 @@ Github actions **workflow** is configurable automated process that will run one 
 ![Github Actions workflow](./img/github_action.png)
 Github actions workflow
 
+You can download Github Actions extension to VS Code [here](https://marketplace.visualstudio.com/items/?itemName=GitHub.vscode-github-actions). 
+
 In the next section we will create our first github actions workflow.
 
 ---
