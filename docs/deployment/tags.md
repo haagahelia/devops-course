@@ -66,6 +66,8 @@ Now, if you make some code changes, the workflow will run linting and tests but 
 
 - rollback
 
+TASK ?? Split workflow to two workflows. The first one handles the linting and testing and the second one handles the deployment. The second should start after the first one is passed and executed.
+
 ### Github releases
 
 You can create a release in GitHub from an existing tag. To do this, go to the main page of your repository and click the **Create a new release** link. From the `Choose a tag` dropdown, select the desired tag. Add a title and release notes, then click the **Publish release** button when you're ready.
