@@ -42,12 +42,12 @@ name: Node.js CI/CD
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
     //highlight-start
-    tags:
-      - '*'
+    tags: ['*']
     //highlight-end
+  pull_request:
+    branches: [main]
 ```
 Then we can used `if` to execute deployment job only if a new tag is added.
 ```yaml
