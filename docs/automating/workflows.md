@@ -38,7 +38,7 @@ jobs:
 
 The `name` defines The name of the workflow.
 
-The `on` defines the event or events that triggers the workflow (e.g., push, pull_request, schedule). You can define multiple events that triggers the workflow in the following way `[push, pull_request]`. 
+The `on` defines the event or events that triggers the workflow (e.g., push, pull_request, schedule). You can define multiple events that triggers the workflow in the following way `[push, pull_request]`. Read more about [events that trigger workflow](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows) in Github docs.
 
 You can also limit the trigger to specific branches:
 ```yaml

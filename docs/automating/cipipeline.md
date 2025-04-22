@@ -17,7 +17,7 @@ This is a Node.js Express calculator application. You can start the app using th
 
 4. Create `./github/workflows/ci_workflow.yaml` file
 
-Now, we are ready to write our workflow file. First we define a name of the workflow. The event that executes workflow is push to the main branch:
+Now, we are ready to write our workflow file. First we define a name of the workflow. The event that executes workflow is push and merge a branch to the main branch:
 
 ```yaml
 # Node.js CI pipeline
@@ -27,6 +27,10 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
+
 ```
 Next, we define jobs for our workflow. The jobs will be run on the latest version of ubuntu.
 ```yaml
@@ -35,6 +39,9 @@ name: Node.js CI
 
 on:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
@@ -52,6 +59,9 @@ name: Node.js CI
 
 on:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
@@ -72,6 +82,9 @@ name: Node.js CI
 
 on:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
