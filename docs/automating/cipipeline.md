@@ -25,12 +25,9 @@ name: Node.js CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
-
+    branches: [main]
 ```
 Next, we define jobs for our workflow. The jobs will be run on the latest version of ubuntu.
 ```yaml
@@ -39,11 +36,9 @@ name: Node.js CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   Node-ci-pipeline:
@@ -59,11 +54,9 @@ name: Node.js CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   Node-ci-pipeline:
@@ -82,11 +75,9 @@ name: Node.js CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   Node-ci-pipeline:

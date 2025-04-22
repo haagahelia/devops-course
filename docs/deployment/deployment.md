@@ -67,9 +67,10 @@ name: Node.js CI
 
 on:
   push:
-    branches:
-      - main
-
+    branches: [main]
+  pull_request:
+    branches: [main]
+    
 jobs:
   Node-ci-pipeline:
     runs-on: ubuntu-latest
