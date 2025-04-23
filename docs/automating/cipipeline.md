@@ -121,6 +121,12 @@ Read the [matrix documentation](https://docs.github.com/en/actions/writing-workf
 
 :::
 
+### Status badge
+
+You can display a status badge in your repository to indicate the status of your workflows. Read the instructions in the [Github documentation](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/adding-a-workflow-status-badge) and add a status badge to your repository.
+
+![Worflow badge](./img//badge.png)
+
 ---
 ### Further reading
 - https://github.com/features/actions
@@ -128,3 +134,5 @@ Read the [matrix documentation](https://docs.github.com/en/actions/writing-workf
 
 
 MISSÄ TÄMÄ KÄSITELLÄÄN: - https://www.youtube.com/watch?v=vMhDkt5JNN0 / Secrets
+
+SHOW BADGE: https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/adding-a-workflow-status-badge
