@@ -55,6 +55,10 @@ The `runs-on` defines that job runs on an `ubuntu-latest` virtual machine. You c
 
 The `steps` defines the individual tasks within a job. The `run` keyword is used to define a shell command or script that will be executed in a workflow step. Each `run` step executes a command directly on the runner (the virtual machine or container where the job is running).
 
+:::note
+Steps run sequentially, in order. Each step waits for the previous one to finish before starting.
+:::
+
 There are also multiline commands in `steps` such as:
 ```yaml
 - name: List files in the repository
@@ -63,8 +67,50 @@ There are also multiline commands in `steps` such as:
 ```
 This lists all files in the repository directory on the runner using the ls command. The `${{ ... }}` syntax is used to access GitHub context variables. The `${{ github.workspace }}` returns absolute path to the GitHub workspace directory on the runner. Read more in [accessing contextual information](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs)
 
-The `|` symbol in the run section of a GitHub Actions workflow is a YAML syntax feature ***block scalar**. It is used to write multi-line strings or commands in a more readable format.
+The `|` symbol in the run section of a GitHub Actions workflow is a YAML syntax feature ***block scalar**. It is used to write multi-line strings or commands in a more readable format. You can write multiple shell commands under one run block, for example:
 
----
+```yaml
+- name: List files in the repository
+  run: |
+    echo "Listing files:"
+    ls ${{ github.workspace }}
+    echo "Done"
+```
+
+### Multiple jobs
+
+By default, when your workflow contains multiple jobs, they run in parallel. In the example below, there are three jobs: `build`, `test`, and `deploy`.
+
+The `deploy` job uses the `needs` keyword to specify that it depends on the successful completion of both the `build` and `test` jobs. This means `deploy` will only start after both of those jobs have finished successfully, ensuring that deployment happens only if the build and tests pass.
+
+```yaml
+name: Workflow with Dependencies
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Building..."
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Testing..."
+
+  deploy:
+    needs: [build, test]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying app only after build and test succeed"
+```
+
+You can read more about `needs` syntax [here](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds).
+
+GitHub has limits on the number of jobs that can run concurrently, which may vary based on your account type. Refer to the GitHub documentation for the  details on these [limitations](https://docs.github.com/en/actions/administering-github-actions/usage-limits-billing-and-administration).
+
+Next, we start to implement our first CI pipeline using Github Actions.
+
 ### Further reading
 - https://docs.github.com/en/actions/writing-workflows
