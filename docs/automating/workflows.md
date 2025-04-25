@@ -47,7 +47,12 @@ on:
     branches:
       - main
 ```
-In this example, the workflow is configured to trigger whenever a push is made to the `main` branch of the repository.
+In this example, the workflow is configured to trigger whenever a push is made to the `main` branch of the repository. You can also use inline bracket list as shown in the following example.
+```yaml
+on:
+  push:
+    branches: [main, develop]
+```
 
 The `jobs` section specifies a set of tasks that the workflow will execute. In this example there is one job that is named `Explore-GitHub-Actions`. 
 
