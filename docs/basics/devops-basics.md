@@ -101,6 +101,14 @@ Here are some commonly used tools in each stage of the DevOps lifecycle:
 
 In this course, we are mostly using tools from Github and Docker for containerization.
 
+:::info[TASK: Design CI/CD workflow]
+Imagine you are part of a team developing a simple web application (e.g., a static website displaying information or a basic API). Your team wants to adopt DevOps practices to improve the development process.
+
+1. Describe the steps you would include in a Continuous Integration (CI) process for this application. What should happen automatically every time a developer integrates code changes? Mention at least two automated checks.
+
+2. Briefly explain how implementing this CI workflow helps achieve two specific benefits of DevOps mentioned in the material (e.g., Faster Time to Market, Improved Software Quality, Better Collaboration, etc.).
+:::
+
 ---
 ### Further Reading
 - https://www.atlassian.com/devops
