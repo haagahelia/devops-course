@@ -103,7 +103,7 @@ This triggers a deployment process on a Render, which listens for such hooks to 
 
 Once the deployment is triggered, navigate to the **Events** section in your Render.com web service dashboard. Here, you should see a new deployment event. After the deployment completes, the latest version of your application will be live.
 
-
-- Deployment using containers
-- Versions (should it be in CI?) 
+---
+### Further reading
+- https://docs.github.com/en/actions/about-github-actions/about-continuous-deployment-with-github-actions 
 
