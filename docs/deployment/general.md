@@ -29,6 +29,8 @@ Deployment is often automated and automation brings a lot of benefits, such as:
 - Scalability
 - Enables zero-downtime deployment strategies that minimizes disruption to users during updates.
 
+There are several **deployment strategies**, including blue/green deployment and canary deployment. The choice of strategy depends on the organization's business needs and goals. You can learn more about various deployment strategies in this [AWS whitepaper](https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/deployment-strategies.html).
+
 Common tools for deployment automation: GitHub Actions,Jenkins, GitLab CI/CD, Azure DevOps, or CircleCI.
 
 Next, we will deploy our sample application that we used in the CI chapter to a cloud provider.
