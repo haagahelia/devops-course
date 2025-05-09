@@ -18,6 +18,10 @@ DevSecOps is the practice of integrating security into every stage of the softwa
 https://www.microsoft.com/en-in/security/business/security-101/what-is-devsecops
 https://www.redhat.com/en/topics/devops/what-is-devsecops
 
-### CodeQL example
+### Automated security testing
+
+CodeQL example
+
+Repository for the demonstration: https://github.com/juhahinkula/codeql-demo.git
 
 CodeQL: http://codeql.github.com/
