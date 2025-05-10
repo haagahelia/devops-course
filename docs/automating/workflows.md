@@ -115,6 +115,20 @@ You can read more about `needs` syntax [here](https://docs.github.com/en/actions
 
 GitHub has limits on the number of jobs that can run concurrently, which may vary based on your account type. Refer to the GitHub documentation for the  details on these [limitations](https://docs.github.com/en/actions/administering-github-actions/usage-limits-billing-and-administration).
 
+### Multiple workflows
+
+If you have multiple workflow YAML files in your repository, GitHub Actions will trigger and run them independently and in parallel when their respective `on` conditions are met. Each workflow runs in its own environment and does not wait for other workflows to finish unless you explicitly coordinate them.
+
+To coordinate workflows, you can use [`workflow_run`](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_run) event to trigger one workflow after another completes. For example, you can configure a workflow to run only after another workflow has finished successfully.
+
+  ```yaml
+  on:
+    workflow_run:
+      workflows: ["Build"]
+      types:
+        - completed
+  ```
+
 Next, we start to implement our first CI pipeline using Github Actions.
 
 ### Further reading

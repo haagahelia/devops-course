@@ -24,7 +24,6 @@ There are different types of monitorig used in DevOps:
 
 What we covers here? CI/CD pipeline monitoring using Github
 
-
 - Scan for vulnerabilities
 - Tools overview (Grafana, Prometheus, ??)
 
