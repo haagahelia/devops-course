@@ -3,7 +3,7 @@ sidebar_position: 4
 title: Security
 ---
 
-DevSecOps is the practice of integrating security into every stage of the software development lifecycle, combining development (Dev), security (Sec), and operations (Ops). It emphasizes collaboration between development, security, and operations teams to identify and address security issues early and continuously.
+**DevSecOps** is the practice of integrating security into every stage of the software development lifecycle, combining development (Dev), security (Sec), and operations (Ops). It emphasizes collaboration between development, security, and operations teams to identify and address security issues early and continuously.
 
 **Practical examples of DevSecOps:**
 
@@ -18,14 +18,17 @@ DevSecOps is the practice of integrating security into every stage of the softwa
 https://www.microsoft.com/en-in/security/business/security-101/what-is-devsecops
 https://www.redhat.com/en/topics/devops/what-is-devsecops
 
-### Automated security testing using CodeQL
+### Automated security testing
 
-**CodeQL** is a powerful code analysis engine developed by GitHub. It's used to automatically find security vulnerabilities and bugs in source code by treating code as data and querying it like a database.
-CodeQL example. CodeQL lets you write queries in a declarative language (similar to SQL) to examine the relationships and flow in your codebase.
+Automated security testing in software development is the practice of using tools and scripts to automatically scan code and dependencies for security vulnerabilities throughout the development lifecycle. This process helps identify issues such as insecure code patterns, known vulnerabilities in libraries, misconfigurations, and secrets exposure before software is deployed.
 
-You can run CodeQL from the command line ([CodeQL CLI](https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/about-the-codeql-cli)) or integrate with Visual Studio Code using the CodeQL extension.
+#### CodeQL
 
-In this course, we learn how to integrate CodeQL to your Github workflows. We will use the following Java project as a starting point: [See the repository](https://github.com/juhahinkula/codeql-demo.git).
+CodeQL is a code analysis engine developed by GitHub. It's used to automatically find security vulnerabilities and bugs in source code by treating code as data and querying it like a database. CodeQL lets you write queries in a declarative language (similar to SQL) to examine the relationships and flow in your codebase.
+
+You can run CodeQL from the command line ([CodeQL CLI](https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/about-the-codeql-cli)) or integrate with Visual Studio Code using the [CodeQL extension](https://marketplace.visualstudio.com/items?itemName=github.vscode-codeql).
+
+In this course, we learn how to integrate CodeQL to your Github workflows. Clone the following Java project [repository](https://github.com/juhahinkula/codeql-demo.git).
 
 The project is a basic user management system built with Spring Boot and Gradle. Our goal is to set up a CodeQL analysis workflow that runs automatically whenever code is pushed to the main branch.
 
@@ -166,4 +169,10 @@ schedule:
    - cron: '30 1 * * 0'
 
 
-CodeQL: http://codeql.github.com/
+### GitHub Dependabot
+
+https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide
+
+---
+### Further Reading
+http://codeql.github.com/
