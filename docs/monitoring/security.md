@@ -162,16 +162,11 @@ jobs:
         category: "/language:${{matrix.language}}"
 ```
 
-### Schedule 
-
-examples:
-schedule:
-   - cron: '30 1 * * 0'
-
-
 ### GitHub Dependabot
 
-https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide
+GitHub Dependabot is a built-in tool in GitHub that helps you keep your dependencies up to date and secure. It automatically checks your project’s dependencies for outdated or insecure libraries. When it finds a new version or a security vulnerability, Dependabot can automatically create pull requests to update the affected dependencies.
+
+To get practical experience with GitHub Dependabot, it is recommended that you follow the official [Dependabot quickstart tutorial](https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide).---
 
 ---
 ### Further Reading

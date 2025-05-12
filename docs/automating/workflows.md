@@ -115,6 +115,20 @@ You can read more about `needs` syntax [here](https://docs.github.com/en/actions
 
 GitHub has limits on the number of jobs that can run concurrently, which may vary based on your account type. Refer to the GitHub documentation for the  details on these [limitations](https://docs.github.com/en/actions/administering-github-actions/usage-limits-billing-and-administration).
 
+### Scheduling workflows
+
+You can schedule GitHub workflows using the `schedule` event, which uses [cron](https://en.wikipedia.org/wiki/Cron) syntax to define when the workflow should run automatically.
+
+The following example executes the workflow every Monday at 7:30 AM.
+
+```yaml
+on:
+  schedule:
+    - cron: '30 7 * * 1'
+```
+
+You can add multiple schedules by listing more cron entries.
+
 ### Multiple workflows
 
 If you have multiple workflow YAML files in your repository, GitHub Actions will trigger and run them independently and in parallel when their respective `on` conditions are met. Each workflow runs in its own environment and does not wait for other workflows to finish unless you explicitly coordinate them.
