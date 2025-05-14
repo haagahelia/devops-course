@@ -43,7 +43,7 @@ on:
   pull_request:
     branches: [ "main" ]
 ```
-Next, add a first job that runs on the latest Ubuntu virtual environment.
+Next, add a first job that runs on the latest Ubuntu virtual environment. 
 
 We have to define permissions in the following way:
 `actions: read` – Allows the job to read actions in the repository.
@@ -161,12 +161,21 @@ jobs:
       with:
         category: "/language:${{matrix.language}}"
 ```
+The workflow is now set up. After its first successful run, you should see a security issue detected in the Security tab, as shwon in the image below.
+
+![CodeQL analysis result](./img/codeql_1.png)
+
+Navigate to the Security tab, select "Code scanning" from the left menu, and you should see the security alert listed there.
+
+![CodeQL analysis issue](./img/codeql_2.png)
+
+When you open the security alert, you'll find detailed information about the identified issue. To fix it, you can create a new branch and begin working on a fix. Additionally, you can use Copilot to help automatically resolve the issue.
 
 ### GitHub Dependabot
 
 GitHub Dependabot is a built-in tool in GitHub that helps you keep your dependencies up to date and secure. It automatically checks your project’s dependencies for outdated or insecure libraries. When it finds a new version or a security vulnerability, Dependabot can automatically create pull requests to update the affected dependencies.
 
-To get practical experience with GitHub Dependabot, it is recommended that you follow the official [Dependabot quickstart tutorial](https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide).---
+To get practical experience with GitHub Dependabot, it is recommended that you follow the official [Dependabot quickstart tutorial](https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide).
 
 ---
 ### Further Reading
