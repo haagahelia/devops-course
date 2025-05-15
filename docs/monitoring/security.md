@@ -15,9 +15,6 @@ title: Security
 
 **Secrets Management:** Implementing solutions like HashiCorp Vault or Azure Key Vault to securely manage sensitive information such as API keys and passwords.
 
-https://www.microsoft.com/en-in/security/business/security-101/what-is-devsecops
-https://www.redhat.com/en/topics/devops/what-is-devsecops
-
 ### Automated security testing
 
 Automated security testing in software development is the practice of using tools and scripts to automatically scan code and dependencies for security vulnerabilities throughout the development lifecycle. This process helps identify issues such as insecure code patterns, known vulnerabilities in libraries, misconfigurations, and secrets exposure before software is deployed.
@@ -179,4 +176,6 @@ To get practical experience with GitHub Dependabot, it is recommended that you f
 
 ---
 ### Further Reading
-http://codeql.github.com/
+- http://codeql.github.com/
+- https://www.microsoft.com/en-in/security/business/security-101/what-is-devsecops
+- https://www.redhat.com/en/topics/devops/what-is-devsecops

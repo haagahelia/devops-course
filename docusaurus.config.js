@@ -125,6 +125,11 @@ const config = {
         ],
         copyright: `DevOps course © (${new Date().getFullYear()}) is licensed under CC BY-NC-SA 4.0`,
       },
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
+      },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
