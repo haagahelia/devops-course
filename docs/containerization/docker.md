@@ -10,6 +10,7 @@ title: Introduction to Docker
 - Publishing Docke images
 - Docker Compose for multi-container apps
 
+Teemu tekee tänne yksinkertaisen esimerkin kontin luomisesta esim. ubuntu kontti, johon mennään sisään ja asennetaan jotain sekä operoidaan siellä.
 
 :::info[TASK: Containerize an application]
 Follow the instructions at https://docs.docker.com/get-started/workshop/ to containerize a simple web application step by step. You will learn how to create a Dockerfile, build a Docker image, and run a container from that image. The source code for the application does not require modifications, and it can be found at https://github.com/docker/getting-started-app/.

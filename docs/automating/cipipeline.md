@@ -5,6 +5,8 @@ title: CI Pipelines
 
 ### CI workflow
 
+Nyt esimerkki menee CI/CD workflown läpi siten, että build tehdään renderissä. Toinen esimerkki, jossa luodaan kontti joka julkaistaan ja senjälkeen deployment renderiin.
+
 In this section, we will implement simple CI workflow to lint, build and test the Node.js app. 
 
 1. Fork the app from this [repository](https://github.com/juhahinkula/ci-training.git).

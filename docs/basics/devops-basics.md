@@ -107,6 +107,8 @@ Imagine you are part of a team developing a simple web application (e.g., a stat
 1. Describe the steps you would include in a Continuous Integration (CI) process for this application. What should happen automatically every time a developer integrates code changes? Mention at least two automated checks.
 
 2. Briefly explain how implementing this CI workflow helps achieve two specific benefits of DevOps mentioned in the material (e.g., Faster Time to Market, Improved Software Quality, Better Collaboration, etc.).
+
+Tähän voisi laittaa esimerkkiprojektin github:sta jonka avulla tehtävää mietittäisiin.
 :::
 
 ---
