@@ -3,30 +3,21 @@ sidebar_position: 2
 title: Collaboration
 ---
 
-In Git, you can collaborate with others in a number of ways. Typically you will be using separate branches for each feature or bug fix, but you may also use forks, pull requests and other practices to manage code changes. In this section we will cover different strategies for collaboration and their common use cases.
+In a team environment, effective collaboration is crucial not only for the success of the team, but also for enjoying the work you do. Managing a project with Excel or Google Sheets and sending email attachments may work for a limited time with a small team, but it can become frustrating and inefficient quite quickly.
 
+A good software project management tool and a well defined workflow can help teams to work together more effectively. There are many tools available for managing projects, such as [GitHub Projects](https://github.com/features/issues), [Jira](https://www.atlassian.com/software/jira), and [Trello](https://trello.com/). These tools allow teams to track tasks, assign responsibilities, and monitor progress in a more organized way.
 
-## Forks vs. shared repositories
+It can be common that the team has a project management tool in place, but the status of individual tasks in the tool is outdated. Discussions about tasks may take place in various places, such as email, Discord, Whatsapp, Slack or one to one meetings. When a task is marked as completed, it may not be obvious how it was completed or how the quality of the work was ensured. Not to mention tasks that have been completed a long time ago, and there is now confusion about why someone added a `sleep(1)` to the code at some point.
 
-> *"The way you use pull requests depends on the type of development model you use in your project. You can use the fork and pull model or the shared repository model."*>
->
-> [About collaborative development models (GitHub)](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)
+Luckily, the tools mentioned above have features that automatically update the status of tasks and connect code changes to the tasks they are related to. Referring to tasks in commit messages, pull requests, and code reviews can help to keep the project tool up to date. For example, you can write a commit message or pull request description `Fixed error in checkout when the shopping cart is empty. Fixes #128.` could mark the referred issue automatically as resolved. See more at [GitHub documentation](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue).
 
-A typical way for a small team to work together is to use a *shared repository*. In this case, the developers are known to each other and have access to the same repository. This is the most common way to work with Git, and it is the easiest way to get started. In the shared repository, each feature or fix is typically implemented in a separate branch first, and then merged into a development or main branch after the work is done. This is a common workflow in small teams, where all developers have write access to the same repository.
+Recommended videos:
 
-> *"A fork is a new repository that shares code and visibility settings with the original "upstream" repository. Forks are often used to iterate on ideas or changes before they are proposed back to the upstream repository, such as in open source projects or when a user does not have write access to the upstream repository."*
->
-> [Fork a repository (GitHub)](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
+- [Using Projects for feature planning (GitHub at YouTube)](https://www.youtube.com/watch?v=yFQ-p6wMS_Y)
+- [Learn how to use Project Roadmaps - GitHub Checkout (Github at YouTube)](https://www.youtube.com/watch?v=D80u__nYYWw)
 
-In larger teams or open source projects, it is common that each contributor creates their own copy, or *fork*, of the repository. This allows new developers to work on the codebase without having write access to the original repository. The forks are connected to the original repository, and any changes made in a fork can be proposed back to the original repository using a **pull request**. This is a common workflow in open source projects, where contributors may not have direct access to the original repository.
+:::info[TASK: Collaborate on a project]
+We have set up a GitHub project and a repository for this lecture.
 
-:::info[Have you used forks or shared repositories?]
-You may have encountered both of these strategies in your own work. If you have worked on a project with a small team, you have likely used a *shared* repository.
-
-On the other hand, when you have completed exercises in GitHub classroom, you have been given your own personal copy, or a *fork*, of the shared exercise repository.
+Your task is to fork the repository, create new branches for the tasks assigned to you, and create pull requests for your changes. Make sure to refer to the tasks in your commit messages and pull requests to keep the project management tool up to date.
 :::
-
-
-## Pull requests
-
-Pull requests enforce a review process for code changes. They allow you to propose changes to a codebase and have them reviewed by other developers before they are merged into other branches. This is a good practice both in open source projects and in teams, as it allows for code reviews and discussions about the changes before they are merged. Pull requests also allow you to see the differences between your branch and the target branch, which can help you understand the impact of your changes.
