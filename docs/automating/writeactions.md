@@ -10,13 +10,16 @@ Here are a few reasons to create your own GitHub Action:
 - Package your logic once, then use it across projects.
 - Hide complex logic behind a simple interface.
 
-There are two main types of actions you can write:
+There are three main types of actions you can write:
 
 1. JavaScript actions
 - JavaScript actions runs directly on the GitHub-hosted runners. They use Node.js and npm packages.
 
 2. Docker container actions
 -  Run in a Docker container. Good for custom environments or using tools not available on the runner.
+
+3. Composite action
+- allows you to combine multiple workflow steps within one action.
 
 In this course, we’ll start with JavaScript Actions, as they're simpler to set up and work well for most cases.
 
@@ -41,3 +44,6 @@ To get hands-on experience creating your own GitHub Action, you'll complete an i
 
 :::
 
+---
+### Further Reading
+- https://docs.github.com/en/actions/sharing-automations/creating-actions
