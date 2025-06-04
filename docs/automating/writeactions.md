@@ -16,10 +16,10 @@ There are three main types of actions you can write:
 - JavaScript actions runs directly on the GitHub-hosted runners. They use Node.js and npm packages.
 
 2. Docker container actions
--  Run in a Docker container. Good for custom environments or using tools not available on the runner.
+- Run in a Docker container. Good for custom environments or using tools not available on the runner.
 
 3. Composite action
-- allows you to combine multiple workflow steps within one action.
+- Allows you to combine multiple workflow steps within one action.
 
 In this course, we’ll start with JavaScript Actions, as they're simpler to set up and work well for most cases.
 
