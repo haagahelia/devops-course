@@ -22,10 +22,12 @@ In this course, we’ll start with JavaScript Actions, as they're simpler to set
 
 The basic custom JavaScript action structure looks the following:
 
+```mermaid
 my-action/
 ├── action.yml       # Metadata and definition of the action
 ├── index.js         # Your JavaScript logic
 └── package.json     # Dependencies (optional)
+```
 
 The key file is action.yml and it defines your action’s inputs, outputs, and main entry point.
 
