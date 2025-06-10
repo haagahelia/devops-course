@@ -50,7 +50,7 @@ We have to define permissions in the following way:
 ```yaml
 jobs:
   analyze:
-    name: Analyze
+    name: Analyze (${{ matrix.language }})
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -64,45 +64,28 @@ The `strategy` defines how jobs are run. The `fail-fast: false` define that jobs
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'java' ]
+        # Analyzes Java code directly from the codebase without a build
+        language: [ 'java-kotlin' ]  
 ```
-The firs step checks out your repository’s code onto the runner. It makes your code available for the next steps in the workflow.
-
-Then we uses the `actions/setup-java@v4` GitHub action to install Java (specifically version 23, using the Temurin distribution) on the runner. 
+The first step checks out your repository’s code onto the runner. It makes your code available for the next steps in the workflow.
 
 ```yaml
 steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-
-    - name: Setup Java
-      uses: actions/setup-java@v4
-      with:
-        java-version: '23'
-        distribution: 'temurin'
 ```
 The last steps handles the CodeQL analysis.
 
 `Initialize CodeQL` step sets up CodeQL for the workflow. It specifies which programming languages to analyze (using `${{ matrix.language }}` so it can run for multiple languages if needed).
 
-`Autobuild` step automatically builds your project. CodeQL needs to understand your code’s structure, so it tries to build your project using standard build tools.
-
 `Perform CodeQL Analysis` step runs the actual CodeQL analysis. It scans your codebase for security issues and vulnerabilities. The `category` property helps organize the results by language.
 
-If your project has a custom build process, you might need to replace the Autobuild step with manual build commands to ensure CodeQL can analyze your code correctly.
-
-Example for a Node.js/React project:
-
-Let me know if you want a full example workflow for your stack!
 
 ```yaml
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
-
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v3  
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
@@ -123,7 +106,7 @@ on:
 
 jobs:
   analyze:
-    name: Analyze
+    name: Analyze (${{ matrix.language }})
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -133,25 +116,18 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'java' ]
+        language: [ 'java-kotlin' ]
+        # This mode only analyzes Java. Set this to 'autobuild' if Kotlin
+        build-mode: none 
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Setup Java
-      uses: actions/setup-java@v4
-      with:
-        java-version: '23'
-        distribution: 'temurin'
-
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
-
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v3  
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
@@ -173,6 +149,24 @@ When you open the security alert, you'll find detailed information about the ide
 GitHub Dependabot is a built-in tool in GitHub that helps you keep your dependencies up to date and secure. It automatically checks your project’s dependencies for outdated or insecure libraries. When it finds a new version or a security vulnerability, Dependabot can automatically create pull requests to update the affected dependencies.
 
 To get practical experience with GitHub Dependabot, it is recommended that you follow the official [Dependabot quickstart tutorial](https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide).
+
+:::info[TASK: OWASP WebGoat]
+
+OWASP [WebGoat](https://owasp.org/www-project-webgoat/) is an intentionally insecure web application created by the Open Web Application Security Project (OWASP) for educational purposes. 
+
+Fork WebGoat repository from https://github.com/WebGoat/WebGoat/wiki/Forking-WebGoat-in-GitHub
+
+After cloning the repository, you can start WebGoat using Docker:
+
+```
+docker run -it -p 127.0.0.1:8080:8080 -p 127.0.0.1:9090:9090 webgoat/webgoat
+```
+
+Once the container is running, open your browser and navigate to `localhost:8080/WebGoat` to access the WebGoat application.
+
+Next, create a GitHub Actions workflow to run CodeQL analysis on the WebGoat Java source code.
+
+:::
 
 ---
 ### Further Reading
