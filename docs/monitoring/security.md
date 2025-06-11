@@ -25,9 +25,11 @@ CodeQL is a code analysis engine developed by GitHub. It's used to automatically
 
 You can run CodeQL from the command line ([CodeQL CLI](https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/about-the-codeql-cli)) or integrate with Visual Studio Code using the [CodeQL extension](https://marketplace.visualstudio.com/items?itemName=github.vscode-codeql).
 
+#### Example
+
 In this course, we learn how to integrate CodeQL to your Github workflows. Clone the following Java project [repository](https://github.com/juhahinkula/codeql-demo.git).
 
-The project is a basic user management system built with Spring Boot and Gradle. Our goal is to set up a CodeQL analysis workflow that runs automatically whenever code is pushed to the main branch.
+The project is a basic user management system built with Spring Boot and Gradle. Our goal is to set up a CodeQL analysis workflow that runs automatically whenever code is pushed to the main branch. You don't need to build Java projects to run CodeQL analysis. You can Read more about that in [code scanning for compiled languages](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages).
 
 To begin, create a new workflow file named `codeql.yml` in the `.github\workflows` directory. Specify a descriptive name for the workflow and configure the events that will trigger its execution:
 
@@ -58,7 +60,7 @@ jobs:
       security-events: write
 ```
 
-The `strategy` defines how jobs are run. The `fail-fast: false` define that jobs will run to completion even if one fails. The `matrix` contains one variable, `language`, set to `['java']`. If you add more languages (e.g., ['java', 'node']), the job would run once for each language.
+The `strategy` defines how jobs are run. The `fail-fast: false` define that jobs will run to completion even if one fails. The `matrix` contains one variable, `language`, set to `['java-kotlin']`. If you add more languages (e.g., ['java', 'node']), the job would run once for each language.
 
 ```yaml
     strategy:
@@ -144,6 +146,8 @@ Navigate to the Security tab, select "Code scanning" from the left menu, and you
 
 When you open the security alert, you'll find detailed information about the identified issue. To fix it, you can create a new branch and begin working on a fix. Additionally, you can use Copilot to help automatically resolve the issue.
 
+You can also write your own custom CodeQL queries and you can read more about CodeQL syntax in https://codeql.github.com/docs/codeql-overview/.
+
 ### GitHub Dependabot
 
 GitHub Dependabot is a built-in tool in GitHub that helps you keep your dependencies up to date and secure. It automatically checks your project’s dependencies for outdated or insecure libraries. When it finds a new version or a security vulnerability, Dependabot can automatically create pull requests to update the affected dependencies.
@@ -164,7 +168,7 @@ docker run -it -p 127.0.0.1:8080:8080 -p 127.0.0.1:9090:9090 webgoat/webgoat
 
 Once the container is running, open your browser and navigate to `localhost:8080/WebGoat` to access the WebGoat application.
 
-Next, create a GitHub Actions workflow to run CodeQL analysis on the WebGoat Java source code.
+Next, create a GitHub Actions workflow to your WebGoat repository to run CodeQL analysis on the WebGoat Java source code. WebGoat is intentionally vulnerable, so CodeQL will detect many issues.
 
 :::
 
