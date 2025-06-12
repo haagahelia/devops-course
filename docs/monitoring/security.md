@@ -206,6 +206,6 @@ https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-g
 
 ---
 ### Further Reading
-- http://codeql.github.com/
 - https://www.microsoft.com/en-in/security/business/security-101/what-is-devsecops
 - https://www.redhat.com/en/topics/devops/what-is-devsecops
+- http://codeql.github.com/

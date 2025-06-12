@@ -24,4 +24,3 @@ GitHub Actions performance metrics enables you to analyze the efficiency and rel
 ---
 ### Further reading
 - https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/monitoring-workflows
-- https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/using-workflow-run-logs
