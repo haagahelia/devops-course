@@ -3,7 +3,7 @@ sidebar_position: 5
 title: Secrets
 ---
 
-When working with CI/CD pipelines, it's common to need credentials or API keys—for example, to deploy to a cloud provider or access third-party services. Storing these securely is critical. GitHub Secrets provides a secure way to store and manage sensitive data like when using GiHub actions.
+When working with CI/CD pipelines, it's common to need credentials or API keys—for example, to deploy to a cloud provider or access third-party services. Storing these securely is critical. GitHub Secrets provides a secure way to store and manage sensitive data like when using GiHub actions. Each CI/CD platform has its own way of managing secrets.
 
 ### Github Secrets
 
