@@ -12,18 +12,17 @@ The following image describes the DevOps loop:
 
 ![DevOps loop](./img/devops_loop.png)
 
-DevOps loop from  https://www.atlassian.com/devops
+DevOps loop image from https://commons.wikimedia.org/ (Kharnagy, CC BY-SA 4.0 license)
 
 The DevOps loop illustrates the iterative nature of DevOps practices. It consists of the following stages:
 
 *   **Plan:** Development team Define and prioritize features and requirements.
-*   **Code:** Develop planned features using the same codebase.
-*   **Build:** Integrate code changes and create software builds.
-*   **Test:** Perform automated and manual testing to ensure quality.
-*   **Deploy:** Deploy the software to the target environment.
-*   **Operate:** Monitor and manage the software in production.
-*   **Observe (Monitor):** Track performance and identify issues.
-*   **Continuous feedback (Learn):** Analyze data and feedback to improve the process.
+*   **Create/Code:** Develop planned features using the same codebase.
+*   **Verify / Test:** Perform automated and manual testing to ensure quality.
+*   **Package / Build:** Integrate code changes and create software builds.
+*   **Release / Deploy:** Deploy the software to the target environment.
+*   **Configure / Operate:** Monitor and manage the software in production.
+*   **Monitor / Observe:** Track performance and identify issues. Analyze data and feedback to improve the process.
 
 DevOps offer advantages for organizations by breaking down silos and promoting automation. DevOps can help teams deliver software faster, more reliably, and with greater efficiency. Here are some key benefits of using DevOps:
 
@@ -92,7 +91,7 @@ Here are some commonly used tools in each stage of the DevOps lifecycle:
   - Puppet
   - Terraform
 
-**Observe (Monitor):** / **Continuous Feedback (Learn):**
+**Monitor:**
   - Prometheus
   - Grafana
   - Datadog
