@@ -62,7 +62,7 @@ CALMS is a framework that can be used to assess company's ability to adopt DevOp
 Here are some commonly used tools in each stage of the DevOps lifecycle:
 
 **Plan & Code:**
-  - GitHub
+  - GitHub, GitLab
   - Jira
   - Trello
   - Azure Boards
@@ -71,7 +71,7 @@ Here are some commonly used tools in each stage of the DevOps lifecycle:
 **Build:**
   - Maven
   - Gradle
-  - npm
+  - npm, yarn, pnpm
   - Docker
 
 **Test:**
@@ -95,7 +95,6 @@ Here are some commonly used tools in each stage of the DevOps lifecycle:
 **Observe (Monitor):** / **Continuous Feedback (Learn):**
   - Prometheus
   - Grafana
-  - New Relic
   - Datadog
   - BetterStack
 

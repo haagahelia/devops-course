@@ -12,6 +12,10 @@ In this course, you will get a basic understanding of DevOps principles, tools, 
 
 Before you start this course, you will need a GitHub account and Docker installed on your computer. We recommend that you have a separate GitHub account for your studies, in case you are using your existing account for professional work.
 
+:::note
+As a student you can get free GitHub Pro account by registering to the GitHub Student Developer Pack. You can also get free access to a wide range of developer tools, services, and educational resources.
+:::
+
 If you have difficulties installing Docker locally on your system, you can use online development environments such as [GitHub Codespaces](https://github.com/features/codespaces) or remote virtual machines to run Docker. These options can be discussed in more detail at the beginning of the course.
 
 It is also recommended that you have the following knowledge:
