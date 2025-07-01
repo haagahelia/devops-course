@@ -102,23 +102,30 @@ In this course, we are mostly using tools from Github and Docker for containeriz
 :::info[TASK: CI/CD workflow]
 Work in groups of 2–4. Your task is to find a real-world DevOps example from the internet or GitHub. Follow these steps:
 
-1. Find a Public DevOps Project or Pipeline:
+**1. Find a Public DevOps Project or Pipeline:**
 
 Search GitHub for a public repository that uses DevOps practices (e.g., CI/CD workflows, Infrastructure as Code, automated testing, or security scanning).
-Alternatively, find a blog post or article describing a real DevOps pipeline in use.
-Analyze the Example:
 
-2. Identify which DevOps tools and practices are used (e.g., GitHub Actions, Jenkins, Docker, Terraform, etc.).
+Alternatively, find a blog post or article describing a real DevOps pipeline in use.
+
+Tip: You can search GitHub with keywords like “github actions”, “ci pipeline”, “devops example”, or look for repositories with a .github/workflows folder.
+
+If you don't find any, you can use for example:
+- https://github.com/spring-petclinic/spring-framework-petclinic
+- https://github.com/facebook/react
+
+**2. Analyze the Example:**
+
+Identify which DevOps tools and practices are used (e.g., GitHub Actions, Jenkins, Docker, etc.).
 
 Describe the workflow or pipeline: What happens automatically when code is pushed or merged?
-Prepare a Short Presentation:
 
-3. Summarize your findings (tools, practices, workflow).
+**3. Prepare a Short Presentation:**
+
+Summarize your findings (tools, practices, workflow).
 
 Highlight one thing you found interesting or new.
 Be ready to present your example to the class (5 minutes per group).
-
-Tip: You can search GitHub with keywords like “github actions”, “ci pipeline”, “devops example”, or look for repositories with a .github/workflows folder.
 :::
 
 ---
