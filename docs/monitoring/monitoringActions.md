@@ -21,6 +21,10 @@ GitHub Actions performance metrics enables you to analyze the efficiency and rel
 
 ![Github actions usage metrics](img/performance_metrics.png)
 
+ :::note
+ These metrics only reflect the performance and usage of your GitHub Actions workflows. They do not provide insights into the health or performance of your deployed or running application.
+:::
+
 ---
 ### Further reading
 - https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/monitoring-workflows

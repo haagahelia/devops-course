@@ -22,9 +22,6 @@ There are different types of monitorig used in DevOps:
 
 **Security Monitoring** detects vulnerabilities, unauthorized access, and potential threats.
 
-What we covers here? CI/CD pipeline monitoring using Github
-
-- Scan for vulnerabilities
-- Tools overview (Grafana, Prometheus, ??)
+Let's start by exploring how to monitor CI/CD pipelines using GitHub tools.
 
 
