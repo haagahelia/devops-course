@@ -55,7 +55,16 @@ Developers should know security practices of the development process (DevSecOps)
 
 ### CALMS framework
 
-CALMS is a framework that can be used to assess company's ability to adopt DevOps processes. You can read more about CALMS in https://www.atlassian.com/devops/frameworks/calms-framework.
+CALMS is a framework that can be used to assess company's ability to adopt DevOps processes. It is created by Jez Humble, co-author of The DevOps Handbook and Accelerate. 
+
+CALMS is an acronym for:
+- **C**ulture
+- **A**utomation
+- **L**ean
+- **M**easurement
+- **S**haring
+
+You can read more about CALMS in https://www.atlassian.com/devops/frameworks/calms-framework.
 
 ### Tools used in each DEVOPS stage
 Here are some commonly used tools in each stage of the DevOps lifecycle:
