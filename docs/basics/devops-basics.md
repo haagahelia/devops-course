@@ -109,31 +109,27 @@ Here are some commonly used tools in each stage of the DevOps lifecycle:
 In this course, we are mostly using tools from Github and Docker for containerization.
 
 :::info[TASK: CI/CD workflow]
-Work in groups of 2–4. Your task is to find a real-world DevOps example from the internet or GitHub. Follow these steps:
+Work in groups of 2–4. In this task, you will apply your understanding of basic CI/CD and DevOps concepts. The goal is to design a simple CI/CD pipeline for a application, without writing any code or configuration files. This is a conceptual task that helps you think about how software delivery can be automated and improved.
 
-**1. Find a Public DevOps Project or Pipeline:**
+Imagine your team is developing a basic web application (e.g., a calculator, to-do list, or blog). You want to implement a CI/CD process to improve the way the application is tested and delivered.
 
-Search GitHub for a public repository that uses DevOps practices (e.g., CI/CD workflows, Infrastructure as Code, automated testing, or security scanning).
+Answer the following questions:
+-	When should the automation pipeline be triggered? (e.g., on pull request, push to main, release tag)
+-	What stages should your pipeline include? (e.g., linting, testing, build, deploy)
+-	At what points should human review or approval be required? (e.g., code review, manual deploy)
+-	What are the benefits of this process for the development team and end users?
 
-Alternatively, find a blog post or article describing a real DevOps pipeline in use.
+Tip:
+You may use predefined steps such as:
+- Run unit tests
+- Deploy to staging
+- Notify team via Slack
+- Lint code
+- Build the application
 
-Tip: You can search GitHub with keywords like “github actions”, “ci pipeline”, “devops example”, or look for repositories with a .github/workflows folder.
+Organize these steps in a logical order to reflect a basic CI/CD pipeline.
 
-If you don't find any, you can use for example:
-- https://github.com/spring-petclinic/spring-framework-petclinic
-- https://github.com/facebook/react
 
-**2. Analyze the Example:**
-
-Identify which DevOps tools and practices are used (e.g., GitHub Actions, Jenkins, Docker, etc.).
-
-Describe the workflow or pipeline: What happens automatically when code is pushed or merged?
-
-**3. Prepare a Short Presentation:**
-
-Summarize your findings (tools, practices, workflow).
-
-Highlight one thing you found interesting or new.
 Be ready to present your example to the class (5 minutes per group).
 :::
 
