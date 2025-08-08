@@ -84,6 +84,18 @@ const config = {
           },
         ],
       },
+      algolia: {
+        // The application ID provided by Algolia
+        appId: 'SO2QG1D38Z',
+
+        // Public API key: it is safe to commit it
+        apiKey: 'a9143eac8af690ed97aa3a1c3c48b612',
+
+        indexName: 'devops-course',
+
+        // Optional: see doc section below
+        contextualSearch: false,
+      },
       footer: {
         style: 'dark',
         links: [
