@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+​
+# Algolia-Crawler-Verif: D5CBA7153CA92102
+​
+Sitemap: https://haagahelia.github.io/devops-course/sitemap.xml
