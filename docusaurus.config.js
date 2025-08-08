@@ -64,6 +64,9 @@ const config = {
         minHeadingLevel: 2,
         maxHeadingLevel: 5,
       },
+      metadata: [
+       {name: 'algolia-site-verification', content: 'D5CBA7153CA92102'},
+      ],
       navbar: {
         title: 'DevOps',
         logo: {
