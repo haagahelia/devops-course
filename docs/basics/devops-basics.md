@@ -53,6 +53,8 @@ Developers should know security practices of the development process (DevSecOps)
 > *People and culture are the top factors of a successful DevOps implementation.*
 > Atlassian 2020 DevOps Trends Survey (https://www.atlassian.com/whitepapers/devops-survey-2020)
 
+[DevOps in 5 minutes video by Simplilearn](https://www.youtube.com/watch?v=Xrgk023l4lI)
+
 ### CALMS framework
 
 CALMS is a framework that can be used to assess company's ability to adopt DevOps processes. It is created by Jez Humble, co-author of The DevOps Handbook and Accelerate. 
