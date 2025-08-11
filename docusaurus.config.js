@@ -10,7 +10,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'DevOps',
+  title: 'DevOps-technologies',
   tagline: 'Haaga-Helia DevOps course',
   favicon: 'img/favicon.ico',
 
@@ -68,7 +68,7 @@ const config = {
        {name: 'algolia-site-verification', content: 'D5CBA7153CA92102'},
       ],
       navbar: {
-        title: 'DevOps',
+        title: 'DevOps-technologies',
         logo: {
           alt: 'My Site Logo',
           src: 'img/haagahelia.png',
