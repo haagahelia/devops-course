@@ -14,10 +14,16 @@ Log monitoring serves various purposes, such as:
 - Audit Trails: Logs act as a historical record of system and user activities.
 - Automation & Alerting: Integrates with systems to automatically trigger alerts or actions based on specific log entries.
 
-There are many tools available for log monitoring. One popular option is the ELK Stack, an open-source suite consisting of three main components:
+There are many tools available for log monitoring. One popular option is the Elastic stack (or ELK stack), an open-source suite consisting of three main components:
+
 - **Elasticsearch**: A distributed search and analytics engine that stores and indexes log data for fast querying.
 - **Logstash**: A data processing pipeline that ingests, transforms, and forwards logs from various sources to Elasticsearch.
 - **Kibana**: A visualization tool that enables users to explore and analyze log data stored in Elasticsearch through dashboards and charts.
+
+These tools are covered in an excellent manner in the YouTube playlists [*Mini Beginner's Crash Course to Elasticsearch and Kibana*](https://www.youtube.com/playlist?list=PL_mJOmq4zsHbcdoeAwNWuhEWwDARMMBta) or [*Elasticsearch 101 Course*](https://www.youtube.com/playlist?list=PL_mJOmq4zsHbHFer6CGTd-1qoqEQ0qkQm) by [Official Elastic Community](https://www.youtube.com/@OfficialElasticCommunity).
+
+
+### Logging from applications
 
 To create effective log monitoring, applications should produce structured logs that can be easily parsed and analyzed by log management tools. Structured logging means that log messages are formatted in a consistent, machine-readable format such as JSON. This enables automated systems to extract fields like timestamps, log levels, service names, and contextual data for filtering, searching, and visualization.
 
@@ -42,7 +48,8 @@ Below, you can see one example of structured log message:
 ```
 By implementing structured logging and using standard libraries, you ensure that your logs are compatible with  log monitoring solutions.
 
+
 ### Example
 
-Some practical example here...
+* https://github.com/LisaHJung/Part-1-Intro-to-Elasticsearch-and-Kibana
 

@@ -22,7 +22,7 @@ The cloud providers also offer their own container registry services. These regi
 
 ## Pushing images to a registry
 
-To push a local Docker image to a container registry, you typically need to authenticate with the registry, tag the image with the registry's URL, and then push the image. Individual steps vary depending on the registry, but the general process is similar across different registries. 
+To push a local Docker image to a container registry, you typically need to authenticate with the registry, tag the image with the registry's URL, and then push the image. Individual steps vary depending on the registry, but the general process is similar across different registries.
 
 Docker has a concise [guide on how to push images to a registry](https://docs.docker.com/get-started/introduction/build-and-push-first-image/) that covers the basic steps. Meanwhile, GitHub container registry encourages building and pushing images using GitHub Actions, which you can find more information on their [documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
 
@@ -41,9 +41,14 @@ To automate deployments when a new image is pushed to a container registry, you 
 For example, [Render.com allows you to set up a webhook](https://render.com/docs/deploy-hooks) that triggers a deployment when a new image is pushed to the registry:
 
 ```bash
-# see https://render.com/docs/deploy-hooks
-
+# You can test the webhook with curl:
 curl https://api.render.com/deploy/srv-xyz...
+
+# Do not store the hook URL in version control, as it could be
+# used by unauthorized users to trigger deployments.
+#
+# Instead, use GitHub secrets or other secret management tools:
+curl "$deploy_url"
 ```
 
-Render.com also provides [a sample GitHub action](https://render.com/docs/deploy-hooks#example-workflow) that can be used to trigger deployment.
+See https://render.com/docs/deploy-hooks for more information about their deployment hooks. Render.com also provides [a sample GitHub action](https://render.com/docs/deploy-hooks#example-workflow) that can be used to trigger deployment.
