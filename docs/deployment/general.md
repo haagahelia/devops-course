@@ -3,8 +3,6 @@ sidebar_position: 1
 title: Deployment & Delivery
 ---
 
-![CD loop](./img/cd_loop.png)
-
 In DevOps **CD** stands for: **Continuous Delivery** or **Continuous Deployment**.
 
 Continuous Delivery is a practice where code changes are automatically built, tested, and prepared for release to production.The deployment to production is manual and requires human approval. That ensures the software is always in a deployable state.
