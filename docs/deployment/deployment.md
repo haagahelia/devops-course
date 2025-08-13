@@ -7,9 +7,11 @@ title: CD pipeline
 
 We will do our first deployment to Render.com (https://render.com) that provides free Hobby plan for small-scale applications. There are some limitations in free plan that you should be aware. The deployments are much slower when using free plan and free instances will spin down with inactivity, which can delay requests by 50 seconds or more. We are going to deploy the Node Express app that we used in the CI pipelines chapter earlier. 
 
+In this chapter, we continue working with the calculator Node.js application introduced in the CI workflow section.
+
 First, you have to create an account to Render.com in https://dashboard.render.com/register. After you have sign-in to Render, select **New --> Web Service** in your workspace.
 
-Next, you can select public GitHub repository where your project is hosted and press the **Connect** button.
+Next, you can select public GitHub repository where your project is hosted and press the **Connect** button (Use your own forked repository).
 
 In the web service form, fill in the following details:
 
