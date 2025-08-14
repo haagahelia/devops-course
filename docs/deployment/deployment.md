@@ -65,7 +65,7 @@ Now, we can  modify our Github actions workflow. Add the following Deploy step i
 
 ```yaml
 # Node.js CI/CD pipeline
-name: Node.js CI
+name: Node.js CI/CD
 
 on:
   push:
@@ -104,6 +104,66 @@ Secrets are securely stored and not exposed in logs, ensuring sensitive informat
 This triggers a deployment process on a Render, which listens for such hooks to start deploying the latest version of your application.
 
 Once the deployment is triggered, navigate to the **Events** section in your Render.com web service dashboard. Here, you should see a new deployment event. After the deployment completes, the latest version of your application will be live.
+
+A common practice is that linters and tests are often run in the same workflow, but deployment is kept in a separate workflow. This way you get a clean separation, where one workflow handles lint/tests and another handles deployment only after the first one is green.
+
+In our case workflows could be the following:
+
+```yaml title="CI workflow"
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    
+jobs:
+  Node-ci-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: 
+          node-version: '20'
+      - name: Install dependencies
+        run: npm ci
+      - name: Linting
+        run: npm run lint
+      - name: Build
+        run: npm run build
+      - name: Run tests
+        run: npm run test
+```
+We want to make sure that the deploy runs only if the CI has passed. We can use the `workflow_run` trigger in the deployment workflow.
+
+```yaml title="CD workflow"
+name: CD
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
+    
+jobs:
+  Deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: 
+          node-version: '20'
+      - name: Install dependencies
+        run: npm ci
+      - name: Deploy
+        env:
+          deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          curl "$deploy_url"   
+```
+
+There is also `workflow_dispatch` to manually trigger deploy after verifying CI. That gives complete control over when to deploy but it requires manual action.
 
 ---
 ### Further reading
