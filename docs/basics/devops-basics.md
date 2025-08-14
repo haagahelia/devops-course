@@ -115,6 +115,10 @@ Work in groups of 2–4. In this task, you will apply your understanding of basi
 
 Imagine your team is developing a basic web application (e.g., a calculator, to-do list, or blog). You want to implement a CI/CD process to improve the way the application is tested and delivered.
 
+OR
+
+If you have taken a software development project course, you can use it as an example if DevOps practices were used there.
+
 Answer the following questions:
 -	When should the automation pipeline be triggered? (e.g., on pull request, push to main, release tag)
 -	What stages should your pipeline include? (e.g., linting, testing, build, deploy)
