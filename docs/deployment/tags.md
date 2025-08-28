@@ -72,6 +72,7 @@ You can create a release in GitHub from an existing tag. To do this, go to the m
 
 GitHub will automatically include links to download a zip file and a tarball containing the contents of the repository at the point of the tag's creation.
 
+A GitHub Release is based on a Git tag but provides extra metadata like release notes, attached binaries/artifacts, and changelogs. It’s more user-friendly and meant for distributing packaged versions of software.
 ---
 ### Further reading
 - https://git-scm.com/book/en/v2/Git-Basics-Tagging
