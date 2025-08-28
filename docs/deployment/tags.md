@@ -58,15 +58,11 @@ if: startsWith(github.ref, 'refs/tags/')
   run: |
     curl "$deploy_url"
 ```
-The `github.ref` is built-in GitHub Actions context variable. It represents the Git reference (e.g., branch or tag) that triggered the workflow. Now, in our case the `github.ref` is `refs/tags/v1.0.0`. If a branch is pushed, github.ref might be `refs/heads/main`.
+The `github.ref` is built-in GitHub Actions context variable. It represents the Git reference (e.g., branch or tag) that triggered the workflow. Now, in our case the `github.ref` is `refs/tags/v1.0.0`. If a branch is pushed, `github.ref` might be `refs/heads/main`.
 
 You can read more about `if` statement syntax [here](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idif).
  
 Now, if you make some code changes, the workflow will run linting and tests but it doesn't deploy our app. When you add a new tag then app is also deployed. 
-
-- rollback
-
-TASK ?? Split workflow to two workflows. The first one handles the linting and testing and the second one handles the deployment. The second should start after the first one is passed and executed.
 
 ### Github releases
 
