@@ -131,8 +131,3 @@ You can display a status badge in your repository to indicate the status of your
 ### Further reading
 - https://github.com/features/actions
 - https://fullstackopen.com/en/part11/getting_started_with_git_hub_actions
-
-
-MISSÄ TÄMÄ KÄSITELLÄÄN: - https://www.youtube.com/watch?v=vMhDkt5JNN0 / Secrets
-
-SHOW BADGE: https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/adding-a-workflow-status-badge

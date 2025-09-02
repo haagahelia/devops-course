@@ -113,7 +113,7 @@ jobs:
 
 You can read more about `needs` syntax [here](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds).
 
-GitHub has limits on the number of jobs that can run concurrently, which may vary based on your account type. Refer to the GitHub documentation for the  details on these [limitations](https://docs.github.com/en/actions/administering-github-actions/usage-limits-billing-and-administration).
+GitHub has limits on the number of jobs that can run concurrently, which may vary based on your account type. Refer to the GitHub documentation for the details on these [limitations](https://docs.github.com/en/actions/administering-github-actions/usage-limits-billing-and-administration).
 
 ### Scheduling workflows
 
