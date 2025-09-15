@@ -105,9 +105,11 @@ This triggers a deployment process on a Render, which listens for such hooks to 
 
 Once the deployment is triggered, navigate to the **Events** section in your Render.com web service dashboard. Here, you should see a new deployment event. After the deployment completes, the latest version of your application will be live.
 
+:::note
 In the previous example, deployment is triggered for both pushes and pull requests. However, we only want to deploy when code is pushed directly to the `main` branch. To achieve this, you can use the `if` condition to ensure deployment runs only on pushes to `main`.
 
 We also use `needs` to specify that the `deploy` job should only run after the `ci` job has completed successfully. This ensures that deployment only happens if all previous steps—such as linting, building, and testing—have passed.
+:::
 
 ```yaml
 name: Node.js CI/CD
@@ -134,7 +136,8 @@ jobs:
         run: npm run build
       - name: Run tests
         run: npm test
-
+  
+  //highlight-start
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: ci
@@ -144,6 +147,7 @@ jobs:
         env:
           DEPLOY_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: curl -X POST "$DEPLOY_URL"
+  //highlight-end
 ```
 
 A common practice is that linters and tests are often run in the same workflow, but deployment is kept in a separate workflow. This way you get a clean separation, where one workflow handles lint/tests and another handles deployment only after the first one is green.
