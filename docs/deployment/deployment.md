@@ -85,10 +85,10 @@ jobs:
         run: npm ci
       - name: Linting
         run: npm run lint
-      - name: Build
-        run: npm run build
       - name: Run tests
         run: npm run test
+      - name: Build
+        run: npm run build
       //highlight-start
       # Deployment to Render.com
       - name: Deploy
@@ -132,10 +132,10 @@ jobs:
         run: npm ci
       - name: Linting
         run: npm run lint
-      - name: Build
-        run: npm run build
       - name: Run tests
         run: npm test
+      - name: Build
+        run: npm run build
   
   //highlight-start
   deploy:
@@ -175,10 +175,10 @@ jobs:
         run: npm ci
       - name: Linting
         run: npm run lint
-      - name: Build
-        run: npm run build
       - name: Run tests
         run: npm run test
+      - name: Build
+        run: npm run build        
 ```
 We want to make sure that the deploy runs only if the CI has passed. We can use the `workflow_run` trigger in the deployment workflow.
 

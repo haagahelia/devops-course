@@ -68,7 +68,7 @@ jobs:
           node-version: '20'
 
 ```
-Now, we are ready to perform linting, build, and testing. First, we will use the `npm ci` command to install dependencies in a clean environment. After the dependencies are installed, we will build the Node.js application and then execute the tests.
+Now, we are ready to perform linting, build, and testing. First, we will use the `npm ci` command to install dependencies in a clean environment. After the dependencies are installed, we will run the tests and then build the Node.js application..
 ```yaml
 # Node.js CI pipeline
 name: Node.js CI
@@ -91,10 +91,10 @@ jobs:
         run: npm ci
       - name: Linting
         run: npm run lint
-      - name: Build
-        run: npm run build
       - name: Run tests
         run: npm run test
+      - name: Build
+        run: npm run build
 ```
 :::note
  The `npm ci` command installs exactly what's in the `lock` file with no deviations. That guarantees the same dependencies across all environments. It requires that `lock` file exists and it removes existing `node_modules` folder before installation. It is faster than `npm install` in clean environments (CI piplines). Read more in https://docs.npmjs.com/cli/v8/commands/npm-ci
