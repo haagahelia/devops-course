@@ -133,17 +133,6 @@ on:
 
 You can add multiple schedules by listing more cron entries.
 
-### Triggering manually
-
-Sometimes you want a workflow that only runs when a human explicitly tells it to run. This is done with the `workflow_dispatch` event in your workflow file:
-
-```
-on:
-  workflow_dispatch:
-```
-
-Read more about `workflow_dispatch` in [Github documentation](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow_dispatch).
-
 ### Multiple workflows
 
 If you have multiple workflow YAML files in your repository, GitHub Actions will trigger and run them independently and in parallel when their respective `on` conditions are met. Each workflow runs in its own environment and does not wait for other workflows to finish unless you explicitly coordinate them.

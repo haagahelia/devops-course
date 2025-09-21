@@ -203,7 +203,41 @@ jobs:
           curl "$deploy_url"   
 ```
 
-There is also `workflow_dispatch` to manually trigger deploy after verifying CI. That gives complete control over when to deploy but it requires manual action.
+### Triggering manually
+
+Sometimes you want a workflow that only runs when a human explicitly tells it to run. This is common when you want to perform deployments manually, run maintenance scripts, or trigger jobs that should not happen automatically on every push or pull request. For example, you might want to deploy to production only after verifying everything in a staging environment, or run a database migration script as needed.
+
+This is done with the `workflow_dispatch` event in your workflow file:
+
+```
+on:
+  workflow_dispatch:
+```
+
+Read more about `workflow_dispatch` in [Github documentation](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow_dispatch).
+
+### Environments
+
+Environments are named deployment targets that represent different stages of your application's lifecycle, such as `development`, `staging`, and `production`. They help you manage deployments, apply environment-specific protection rules, and control access to sensitive resources.
+
+In GitHub Actions, you can define environments in your repository settings. Each environment can have specific secrets, required reviewers, and deployment branch restrictions. This allows you to enforce approval workflows or add manual checks before deploying to critical environments like production.
+
+To use environments in your workflow, specify the `environment` key in your deployment job:
+
+```yaml
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Deploy
+        run: echo "Deploying to production"
+```
+
+You can also set up environment-specific secrets (e.g., `RENDER_DEPLOY_HOOK_URL`) that are only available to jobs running in that environment. This helps keep sensitive information secure and ensures that only approved workflows can access production credentials.
+
+Read more about environments in the [GitHub Actions documentation](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment).
+
 
 ---
 ### Further reading
