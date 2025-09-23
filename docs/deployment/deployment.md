@@ -203,6 +203,24 @@ jobs:
           curl "$deploy_url"   
 ```
 
+It is also a good practice to check if the deployment secret is available before attempting to trigger the deployment. If the secret is missing, the workflow should exit with an error message. You can add a step before the deployment to verify that the secret is set:
+
+```yaml
+- name: Deploy
+  run: |
+    if [ -z "$RENDER_DEPLOY_HOOK_URL" ]; then
+      echo "RENDER_DEPLOY_HOOK_URL secret is not set."
+      exit 1
+    fi
+
+    curl "$deploy_url"   
+```
+
+This ensures that your deployment step will only run if the required secret is present, preventing failed or incomplete deployments due to missing configuration.
+
+You can also check the status of the deployment request in the workflow logs. After the deployment step runs, the output from the `curl` command will indicate whether the request to the Render.com deploy hook was successful. For more detailed deployment status, visit your Render.com dashboard and review the deployment logs and events.
+
+
 ### Triggering manually
 
 Sometimes you want a workflow that only runs when a human explicitly tells it to run. This is common when you want to perform deployments manually, run maintenance scripts, or trigger jobs that should not happen automatically on every push or pull request. For example, you might want to deploy to production only after verifying everything in a staging environment, or run a database migration script as needed.
