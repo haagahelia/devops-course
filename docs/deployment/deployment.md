@@ -80,7 +80,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: 
-          node-version: '20'
+          node-version: '24'
       - name: Install dependencies
         run: npm ci
       - name: Linting
@@ -108,7 +108,7 @@ Once the deployment is triggered, navigate to the **Events** section in your Ren
 :::note
 In the previous example, deployment is triggered for both pushes and pull requests. However, we only want to deploy when code is pushed directly to the `main` branch. To achieve this, you can use the `if` condition to ensure deployment runs only on pushes to `main`.
 
-We also use `needs` to specify that the `deploy` job should only run after the `ci` job has completed successfully. This ensures that deployment only happens if all previous steps—such as linting, building, and testing—have passed.
+We can use `needs` to specify that the `deploy` job should only run after the `ci` job has completed successfully. This ensures that deployment only happens if all previous steps—such as linting, building, and testing—have passed.
 :::
 
 ```yaml
@@ -127,7 +127,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: 
-          node-version: '20'
+          node-version: '24'
       - name: Install dependencies
         run: npm ci
       - name: Linting
@@ -145,62 +145,9 @@ jobs:
     steps:
       - name: Deploy to Render
         env:
-          DEPLOY_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
-        run: curl -X POST "$DEPLOY_URL"
-  //highlight-end
-```
-
-A common practice is that linters and tests are often run in the same workflow, but deployment is kept in a separate workflow. This way you get a clean separation, where one workflow handles lint/tests and another handles deployment only after the first one is green.
-
-In our case workflows could be the following:
-
-```yaml title="CI workflow"
-name: CI
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-    
-jobs:
-  Node-ci-pipeline:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: 
-          node-version: '20'
-      - name: Install dependencies
-        run: npm ci
-      - name: Linting
-        run: npm run lint
-      - name: Run tests
-        run: npm run test
-      - name: Build
-        run: npm run build        
-```
-We want to make sure that the deploy runs only if the CI has passed. We can use the `workflow_run` trigger in the deployment workflow.
-
-```yaml title="CD workflow"
-name: CD
-
-on:
-  workflow_run:
-    workflows: ["CI"]
-    types:
-      - completed
-    
-jobs:
-  deploy:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy
-        env:
           deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
-        run: |
-          curl "$deploy_url"   
+        run:  curl "$deploy_url" 
+  //highlight-end
 ```
 
 It is also a good practice to check if the deployment secret is available before attempting to trigger the deployment. If the secret is missing, the workflow should exit with an error message. You can add a step before the deployment to verify that the secret is set:
@@ -256,6 +203,60 @@ You can also set up environment-specific secrets (e.g., `RENDER_DEPLOY_HOOK_URL`
 
 Read more about environments in the [GitHub Actions documentation](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment).
 
+### Multiple workflows
+
+A common practice is that linters and tests are often run in the same workflow, but deployment is kept in a separate workflow. This way you get a clean separation, where one workflow handles lint/tests and another handles deployment only after the first one is green.
+
+In our case workflows could be the following:
+
+```yaml title="CI workflow"
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    
+jobs:
+  Node-ci-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: 
+          node-version: '24'
+      - name: Install dependencies
+        run: npm ci
+      - name: Linting
+        run: npm run lint
+      - name: Run tests
+        run: npm run test
+      - name: Build
+        run: npm run build        
+```
+We want to make sure that the deploy runs only if the CI has passed. We can use the `workflow_run` trigger in the deployment workflow.
+
+```yaml title="CD workflow"
+name: CD
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
+    
+jobs:
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        env:
+          deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          curl "$deploy_url"   
+```
 
 ---
 ### Further reading
