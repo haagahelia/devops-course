@@ -108,7 +108,7 @@ Once the deployment is triggered, navigate to the **Events** section in your Ren
 :::note
 In the previous example, deployment is triggered for both pushes and pull requests. However, we only want to deploy when code is pushed directly to the `main` branch. To achieve this, you can use the `if` condition to ensure deployment runs only on pushes to `main`.
 
-We can use `needs` to specify that the `deploy` job should only run after the `ci` job has completed successfully. This ensures that deployment only happens if all previous steps—such as linting, building, and testing—have passed.
+We will also create own job for the deployment. We can use `needs` to specify that the `deploy` job should only run after the `ci` job has completed successfully. This ensures that deployment only happens if all previous steps—such as linting, building, and testing—have passed.
 :::
 
 ```yaml
