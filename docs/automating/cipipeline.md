@@ -62,10 +62,10 @@ jobs:
   Node-ci-pipeline:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with: 
-          node-version: '20'
+          node-version: '24'
 
 ```
 Now, we are ready to perform linting, build, and testing. First, we will use the `npm ci` command to install dependencies in a clean environment. After the dependencies are installed, we will run the tests and then build the Node.js application..
@@ -83,10 +83,10 @@ jobs:
   Node-ci-pipeline:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with: 
-          node-version: '20'
+          node-version: '24'
       - name: Install dependencies
         run: npm ci
       - name: Linting
