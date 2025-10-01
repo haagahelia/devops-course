@@ -25,9 +25,23 @@ CodeQL is a code analysis engine developed by GitHub. It's used to automatically
 
 You can run CodeQL from the command line ([CodeQL CLI](https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/about-the-codeql-cli)) or integrate with Visual Studio Code using the [CodeQL extension](https://marketplace.visualstudio.com/items?itemName=github.vscode-codeql).
 
-#### Example
 
-In this course, we learn how to integrate CodeQL to your Github workflows. Clone the following Java project [repository](https://github.com/juhahinkula/codeql-demo.git).
+#### Using CodeQL via the GitHub Security Tab
+
+The easiest way to start using CodeQL is through the Security tab in your GitHub repository:
+
+1. **Navigate to your repository on GitHub.**
+2. Click the **Security** tab at the top.
+3. Select **Code scanning alerts** from the left menu.
+4. Click **Set up code scanning**.
+5. Choose **Set up this workflow** under "CodeQL Analysis".
+6. Review the workflow file (you can customize it if needed), then click **Commit changes** to add it to your repository.
+
+GitHub will automatically run the CodeQL analysis on your codebase. Results will appear in the Security tab under "Code scanning alerts".
+
+#### Using GitHub Actions
+
+You can also use GitHub actions to integrate CodeQL to your Github workflows. Clone the following Java project [repository](https://github.com/juhahinkula/codeql-demo.git).
 
 :::note
 Repository should be **public** to enable security scan. To use CodeQL with private repository, it should be owned by organization with GitHub Code Security enabled.
@@ -169,6 +183,8 @@ Navigate to the Security tab, select "Code scanning" from the left menu, and you
 ![CodeQL analysis issue](./img/codeql_2.png)
 
 When you open the security alert, you'll find detailed information about the identified issue. To fix it, you can create a new branch and begin working on a fix. Additionally, you can use Copilot to help automatically resolve the issue.
+
+You can also get **CWE codes** (Common Weakness Enumeration) that are standardized list of software security weaknesses maintained by the MITRE organization (https://cwe.mitre.org/). Each weakness is assigned a unique identifier, such as CWE-79 (Cross-site Scripting) or CWE-89 (SQL Injection).
 
 You can also write your own custom CodeQL queries and you can read more about CodeQL syntax in https://codeql.github.com/docs/codeql-overview/.
 
