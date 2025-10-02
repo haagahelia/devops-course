@@ -21,7 +21,7 @@ Automated security testing in software development is the practice of using tool
 
 #### CodeQL
 
-CodeQL is a code analysis engine developed by GitHub. It's used to automatically find security vulnerabilities and bugs in source code by treating code as data and querying it like a database. CodeQL lets you write queries in a declarative language (similar to SQL) to examine the relationships and flow in your codebase.
+CodeQL is a code analysis engine developed by GitHub (https://codeql.github.com/). You can find the licence [here](https://github.com/github/codeql-cli-binaries/blob/main/LICENSE.md). It is open source and free for research (GitHub CodeQL can only be used on codebases that are released under an OSI-approved open source license, or to perform academic research). It's used to automatically find security vulnerabilities and bugs in source code by treating code as data and querying it like a database. CodeQL lets you write queries in a declarative language (similar to SQL) to examine the relationships and flow in your codebase.
 
 You can run CodeQL from the command line ([CodeQL CLI](https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/about-the-codeql-cli)) or integrate with Visual Studio Code using the [CodeQL extension](https://marketplace.visualstudio.com/items?itemName=github.vscode-codeql).
 
@@ -34,144 +34,78 @@ The easiest way to start using CodeQL is through the Security tab in your GitHub
 2. Click the **Security** tab at the top.
 3. Select **Code scanning alerts** from the left menu.
 4. Click **Set up code scanning**.
-5. Choose **Set up this workflow** under "CodeQL Analysis".
-6. Review the workflow file (you can customize it if needed), then click **Commit changes** to add it to your repository.
+5. Choose **Set up** under "CodeQL Analysis".
+  You can select from two options:
+  - **Default** will automatically find the best configuration
+  - **Advanced** creates workflow that can be customized
 
 GitHub will automatically run the CodeQL analysis on your codebase. Results will appear in the Security tab under "Code scanning alerts".
 
-#### Using GitHub Actions
+#### Using Advanced mode
 
-You can also use GitHub actions to integrate CodeQL to your Github workflows. Clone the following Java project [repository](https://github.com/juhahinkula/codeql-demo.git).
+For testing CodeQL, you can the following [repository](https://github.com/juhahinkula/codeql-demo.git). Let's see how workflow file looks when advaced set-up is selected:
 
-:::note
-Repository should be **public** to enable security scan. To use CodeQL with private repository, it should be owned by organization with GitHub Code Security enabled.
-:::
-
-The project is a basic user management system built with Spring Boot and Gradle. Our goal is to set up a CodeQL analysis workflow that runs automatically whenever code is pushed to the main branch. You don't need to build Java projects to run CodeQL analysis. You can Read more about that in [code scanning for compiled languages](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages).
-
-To begin, create a new workflow file named `codeql.yml` in the `.github\workflows` directory. Specify a descriptive name for the workflow and configure the events that will trigger its execution:
+This workflow will automatically run code analysis on your repository when you push to main branch, open a pull request to main, or at a scheduled weekly time. The cron expression schedules a task to run every Friday at 19:20:
 
 ```yaml
-name: "CodeQL Analysis"
+name: "CodeQL Advanced"
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  schedule:
+    - cron: '20 19 * * 5'
 ```
-Next, add a first job that runs on the latest Ubuntu virtual environment. 
-
-`permissions` grants the workflow minimal permissions needed to read repository contents and actions, and write security events.
+This job defines the analysis step for CodeQL. It runs on either macOS or Ubuntu depending on the language, and sets the necessary permissions to write security events and read packages, actions, and contents.
 
 ```yaml
 jobs:
   analyze:
     name: Analyze (${{ matrix.language }})
-    runs-on: ubuntu-latest
+    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
     permissions:
+      security-events: write
+      # required to fetch internal or private CodeQL packs
+      packages: read
+      # only required for workflows in private repositories
       actions: read
       contents: read
-      security-events: write
 ```
+The next part of workflow sets up automated security analysis using CodeQL. The `strategy` section defines a matrix to run the workflow for different languages and build modes, specifically for `actions` and `java-kotlin`. The `fail-fast: false` option ensures that all matrix jobs run to completion, even if one fails early. The workflow checks out the repository code using the `actions/checkout@v4` action. It then initializes CodeQL with the specified language and build mode from the matrix using `github/codeql-action/init@v3`. After initialization, it performs a CodeQL analysis with `github/codeql-action/analyze@v3`, categorizing the results by language.
 
-The `strategy` defines how jobs are run. The `fail-fast: false` define that jobs will run to completion even if one fails. The `matrix` contains one variable, `language`, set to `['java-kotlin']`. If you add more languages (e.g., ['java', 'node']), the job would run once for each language.
+The `build-mode` defines how code is built for the code analysis. There are three differen modes: none, autobuild and manual. You can read more about differen build modes [here](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes).
+
+The supported languges can be found [here](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/).
+
+:::note
+When setting `language:actions` `CodeQL can scan your repository’s workflow files for security vulnerabilities specific to GitHub Actions, such as secrets leaks, unsafe script execution, and privilege escalations.
+:::
 
 ```yaml
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'java' ]  
-```
-The first step checks out your repository’s code onto the runner. It makes your code available for the next steps in the workflow.
-
-```yaml
-steps:
+        include:
+        - language: actions
+          build-mode: none
+        - language: java-kotlin
+          build-mode: none # This mode only analyzes Java. Set this to 'autobuild' or 'manual' to analyze Kotlin too.
+    steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-```
 
-`Setup Java` step installs Java 23 using the Temurin distribution.
-
-```yaml
-- name: Setup Java
-  uses: actions/setup-java@v4
-  with:
-    java-version: '23'
-    distribution: 'temurin'
-```
-
-The last steps handles the CodeQL analysis.
-
-`Initialize CodeQL` step sets up CodeQL for the workflow. It specifies which programming languages to analyze (using `${{ matrix.language }}` so it can run for multiple languages if needed).
-
-`Autobuild` attempts to automatically build the Java project (required for accurate analysis).
-
-`Perform CodeQL Analysis` step runs the actual CodeQL analysis. It scans your codebase for security issues and vulnerabilities. The `category` property helps organize the results by language.
-
-
-```yaml
+    # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
-      
-    - name: Autobuild
-        uses: github/codeql-action/autobuild@v3
-
+        build-mode: ${{ matrix.build-mode }}
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{matrix.language}}"
-```
-
-Finally, the whole workflow looks the following:
-
-```yaml
-name: "CodeQL Analysis"
-
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-jobs:
-  analyze:
-    name: Analyze (${{ matrix.language }})
-    runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
-
-    strategy:
-      fail-fast: false
-      matrix:
-        language: [ 'java' ]  
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          java-version: '23'
-          distribution: 'temurin'
-
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: ${{ matrix.language }}
-
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v3
-
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
-        with:
-          category: "/language:${{matrix.language}}"
 ```
 
 The workflow is now set up. After its first successful run, you should see a security issue detected in the Security tab, as shwon in the image below.
@@ -199,7 +133,6 @@ After cloning the repository, you can start WebGoat using Docker:
 ```
 docker run -it -p 127.0.0.1:8080:8080 -p 127.0.0.1:9090:9090 webgoat/webgoat
 ```
-
 Once the container is running, open your browser and navigate to `localhost:8080/WebGoat` to access the WebGoat application.
 
 Next, create a GitHub Actions workflow to your WebGoat repository to run CodeQL analysis on the WebGoat Java source code. WebGoat is intentionally vulnerable, so CodeQL will detect many issues.
