@@ -74,6 +74,13 @@ GitHub will automatically include links to download a zip file and a tarball con
 
 A GitHub Release is based on a Git tag but provides extra metadata like release notes, attached binaries/artifacts, and changelogs. It’s more user-friendly and meant for distributing packaged versions of software.
 
+You can also run a GitHub workflow when new release is published using the following syntax:
+```yaml
+on:
+  release:
+    types: [published]
+```
+
 ---
 ### Further reading
 - https://git-scm.com/book/en/v2/Git-Basics-Tagging
