@@ -43,7 +43,7 @@ GitHub will automatically run the CodeQL analysis on your codebase. Results will
 
 #### Using Advanced mode
 
-For testing CodeQL, you can the following [repository](https://github.com/juhahinkula/codeql-demo.git). Let's see how workflow file looks when advaced set-up is selected:
+For testing CodeQL, you can use the following [repository](https://github.com/juhahinkula/codeql-demo.git). Let's see how workflow file looks when **advanced** set-up is selected:
 
 This workflow will automatically run code analysis on your repository when you push to main branch, open a pull request to main, or at a scheduled weekly time. The cron expression schedules a task to run every Friday at 19:20:
 
