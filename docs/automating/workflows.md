@@ -181,7 +181,7 @@ To learn, how to create your own AI assited workflow, you can watch Github video
 
 GitHub Marketplace offers AI-assisted workflows for tasks such as code reviews, translations, and more. 
 
-For additional information, refer to [GitHub Actions: Using models in workflows](https://docs.github.com/en/actions/using-workflows/using-models-in-workflows).
+For additional information, refer to [GitHub Actions: Using models in workflows](https://docs.github.com/en/github-models/github-models-at-scale/use-models-at-scale).
 
 Next, we start to implement our first CI pipeline using Github Actions.
 
