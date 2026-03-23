@@ -1,11 +1,11 @@
 ---
-sidebar_position: 5
+sidebar_position: 2
 title: Secrets
 ---
 
 When working with CI/CD pipelines, it's common to need credentials or API keys—for example, to deploy to a cloud provider or access third-party services. Storing these securely is critical. GitHub Secrets provides a secure way to store and manage sensitive data like when using GiHub actions. Each CI/CD platform has its own way of managing secrets.
 
-### Github Secrets
+### GitHub Secrets
 
 GitHub supports storing secrets at different levels:
 - Repository-level secrets: Specific to a single repository.
@@ -55,6 +55,10 @@ const apiKey = process.env.API_KEY;
 import os
 api_key = os.getenv("API_KEY")
 ```
+
+GitHub has push protection that automatically blocks before they reach your repository.
+
+GitHub provides also [secret scanning](https://docs.github.com/en/code-security/concepts/secret-security/about-secret-scanning) that automatically detects exposed secrets so you can secure them before they're exploited.
 
 ### Gitleaks
 
