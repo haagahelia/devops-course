@@ -30,6 +30,18 @@ Read the following articles at Atlassian.com about Git workflows to learn more a
 - [Trunk-based development](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development)
 
 
+| Dimension                        | Git Flow                                               | Feature Branch Workflow                      | Trunk-Based Development                                                    |
+| -------------------------------- | ------------------------------------------------------ | -------------------------------------------- | -------------------------------------------------------------------------- |
+| **Feature branch lifetime**      | Days/weeks                                             | Usually hours/days                           | Hours/days                                                                 |
+| **Integration frequency**        | Relatively low                                         | High                                         | Very high / continuous                                                     |
+| **Release strategy**             | Dedicated `release/*` branches                         | Release from `main`                          | Release directly from trunk                                                |
+| **Is `main` always releasable?** | Not necessarily                                        | Yes                                          | Yes, by design                                                             |
+| **Incomplete features**          | Kept in feature branches                               | Usually kept in feature branches             | Merged to trunk behind feature flags / abstractions                        |
+| **Release & deployment**         | Often explicitly coordinated through branches          | CI/CD can deploy from `main`                 | Continuous delivery/deployment is the natural fit                          |
+| **Where does complexity live?**  | Git: many branch types, merges, releases, hotfixes     | Moderate: mostly Git + CI/CD conventions     | Application & automation: feature flags, testing, CI/CD, observability     |
+
+The more you move toward trunk-based development, the less complexity you put into Git branches - and the more you need to invest in CI/CD, automated testing, feature flags, and operational tooling.
+
 
 ## Forks vs. shared repositories
 

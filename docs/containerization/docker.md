@@ -23,6 +23,8 @@ Recommended reading:
 
 :::info[Subscriptions and service agreements]
 When discussing containerization, it is important to note that Docker is not the only option available. Docker can be considered as "open" and parts of it are open source. It can, with some limitations, be used without registering an account and without purchasing a subscription, but especially when using Docker professionally, you will need to see [Docker pricing](https://www.docker.com/pricing) and [Docker subscription service agreement](https://www.docker.com/legal/docker-subscription-service-agreement/).
+
+On this course, you will not be required to create a Docker account or obtain a subscription, but if you plan to use Docker professionally, please ensure that you understand the terms and conditions of using Docker.
 :::
 
 
