@@ -16,6 +16,7 @@ Recommended videos to get started:
 * [Docker in 100 Seconds (Fireship)](https://youtu.be/Gjnup-PuquQ)
 * [Never install locally (Coderized)](https://youtu.be/J0NuOlA2xDc)
 * [Virtual Machine (VM) vs Docker (IBM Technology)](https://youtu.be/a1M_thDTqmU)
+* [Docker Crash Course for Absolute Beginners (TechWorld with Nana)](https://youtu.be/pg19Z8LL06w)
 
 Recommended reading:
 
