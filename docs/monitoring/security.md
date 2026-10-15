@@ -81,6 +81,9 @@ The supported languges can be found [here](https://codeql.github.com/docs/codeql
 
 :::note
 When setting `language:actions` `CodeQL can scan your repository’s workflow files for security vulnerabilities specific to GitHub Actions, such as secrets leaks, unsafe script execution, and privilege escalations.
+
+**Treat your CI/CD pipeline as a critical production code** - Read more in [OWASP GitHub actions security cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/GitHub_Actions_Security_Cheat_Sheet.html
+).
 :::
 
 ```yaml
