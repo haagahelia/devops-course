@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 title: Monitoring in DevOps
 ---
 Monitoring is a critical part of DevOps practices. It ensures the health, performance, and reliability of applications, infrastructure, and services.
