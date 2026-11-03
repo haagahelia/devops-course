@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkdevops||=[]).push([[3045],{9634(e){e.exports=JSON.parse('{"metadata":{"permalink":"/devops-course/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":0,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
