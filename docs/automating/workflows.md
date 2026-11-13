@@ -168,20 +168,6 @@ on:
 ```
 
 :::
-### Using models in workflows
-
-To start using GitHub Models in your Actions workflows, you need to grant your workflow access to AI models by setting the appropriate permission:
-```yaml
-permissions:
-  models: read
-```
-This permission allows your workflow to interact with AI models provided by GitHub. Once enabled, you can use model-based actions to automate tasks such as code review, generating summaries, or answering questions.
-
-To learn, how to create your own AI assited workflow, you can watch Github video [AI in your workflows](https://youtu.be/m293_EsOs7I).
-
-GitHub Marketplace offers AI-assisted workflows for tasks such as code reviews, translations, and more. 
-
-For additional information, refer to [GitHub Actions: Using models in workflows](https://docs.github.com/en/github-models/github-models-at-scale/use-models-at-scale).
 
 Next, we start to implement our first CI pipeline using Github Actions.
 
